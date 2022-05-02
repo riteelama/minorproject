@@ -20,7 +20,7 @@ include "includes/headers/customer-header.php";
 
     <div class="row">
 
-        <!-- Area Chart -->
+        <!-- Package Chart -->
         <div class="col-xl-8 col-lg-7">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -37,7 +37,7 @@ include "includes/headers/customer-header.php";
             </div>
         </div>
 
-        <!-- Pie Chart -->
+        <!-- Comment -->
         <div class="col-xl-4 col-lg-5">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -54,11 +54,6 @@ include "includes/headers/customer-header.php";
             </div>
         </div>
     </div>
-
-
-
-
-
 <?php 
 
 // include "includes/footer.php";

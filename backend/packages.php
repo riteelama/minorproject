@@ -5,8 +5,17 @@ $tablename = "$type";
 
 include "includes/dbconfig.php";
 
-$limit = 5;
+$limit = 3;
 $imagePath = "../uploads/images/";
+
+//to check the user id
+if(isset($_SESSION['loginAccess'])){
+    $email = $_SESSION['loginAccess'];
+    $query = mysqli_query($conn,"SELECT * FROM users WHERE email = '$email'");
+    $rows = mysqli_fetch_assoc($query);
+    $agent_id = $rows['id'];
+    // var_dump($agent_id);
+}
 
 //to create new record
 if(isset($_POST['create'])){
@@ -33,7 +42,7 @@ if(isset($_POST['create'])){
     if(!empty($name) && !empty($description)){
         //process to data entry
         
-        $sql = "INSERT INTO $tablename(name,description,excerpt,price,image,status) VALUES ('$name','$description','$excerpt','$price','$image','$status')";
+        $sql = "INSERT INTO $tablename(name,description,excerpt,price,image,user_id_packages,status) VALUES ('$name','$description','$excerpt','$price','$image','$agent_id','$status')";
         // var_dump($sql);
 
         $query = mysqli_query($conn,$sql);
@@ -144,22 +153,21 @@ if(isset($_POST['search-btn'])){
 }
 else{
 // working with pagination
-$start = 1;
+$start = 0;
 if(isset($_GET['page'])){
     $page = $_GET['page'];
     if($page <= 1){
-        $page = 1;
+        $page = 0;
     }
     else 
     $page = $page - 1;
-
-
     $start = $page*$limit;
 }
 
 
     //find all records
-$sql = "SELECT * FROM $tablename LIMIT $start,$limit";
+$sql = "SELECT * FROM $tablename WHERE user_id_packages = '$agent_id' LIMIT $start,$limit";
+// var_dump($sql);
 }
 
 $query = mysqli_query($conn,$sql);
@@ -167,26 +175,6 @@ $query = mysqli_query($conn,$sql);
 // // print_r(mysqli_fetch_array($query));
 $count = mysqli_num_rows($query);
 // echo $count;
-
-?>
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="logout.php">Logout</a>
-    <p>
-         <?php 
-        // echo isset($msg)?$msg:"";  -->
-        ?></p>
-    <hr>
-    <a href="?new">Add New</a>
-    <a href="?all">View All</a>
-    <?php 
 
 include "includes/headers/agent-header.php";
 

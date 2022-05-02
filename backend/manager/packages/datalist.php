@@ -18,25 +18,25 @@
                 </div>
                 <div class="card-body">
                     <h6 class ="mb-3 font-weight-bold text-danger"><?php echo isset($error)?$error:'';?></h6>
-                    <div class="table-responsive">
+                    <!-- <div class="table-responsive"> -->
                         <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             
                             <div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <thead>
-                            <?php 
-                                if($count>0){
-                            ?>
+                          
                                 <tr role="row">
-                                    <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 194px;" name="id">SN</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 296px;" name="name">Name</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 141px;" name="excerpt">Excerpt</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 141px;" name="price">Price</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 141px;" name="image">Image</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 141px;" name="postdate">Postdate</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Salary: activate to sort column ascending" style="width: 120px; text-align:center" name="status">Status</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Salary: activate to sort column ascending" style="width: 120px; text-align:center" name="action">Action</th>
+                                    <th name="id">SN</th>
+                                    <th name="name">Name</th>
+                                    <th name="excerpt">Excerpt</th>
+                                    <th name="price">Price</th>
+                                    <th name="image">Image</th>
+                                    <th name="postdate">Postdate</th>
+                                    <th name="status">Status</th>
+                                    <th name="action">Action</th>
                                 </tr>
-                                    <?php 
+                                <?php 
+                                    if($count>0){
+    
                                     $sn = 1;
                                         while($row = mysqli_fetch_assoc($query)){
                                     ?>    
@@ -47,7 +47,7 @@
                             <tbody>
                                 
                             <tr>
-                                    <td><?php echo $sn++; ?></td>
+                                    <td><?php echo $row['id']; ?></td>
                                     <td><?php echo $row['name'];?></td>
                                     <td><?php echo $row['excerpt'];?></td>
                                     <td><?php echo $row['price'];?></td>
@@ -88,7 +88,7 @@
 
                     
                     
-                </div>
+                <!-- </div> -->
             </div>
 
         </div>
@@ -104,9 +104,3 @@
 
     </div>
     <!-- End of Page Wrapper -->
-
-
-
-
-
-

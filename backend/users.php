@@ -6,7 +6,7 @@ $tablename = "$type";
 
 include "includes/dbconfig.php";
 
-
+$imagePath = "../uploads/images/";
 $limit = 5;
 
 
@@ -21,13 +21,23 @@ if(isset($_POST['create'])){
     $address = $_POST['address'];
     $status = $_POST['status'];
     $address = $_POST['role_id'];
+    $profile_picture = $_FILES['profile_picture'];
+
+    if(isset($profile_picture['name']) && !empty($profile_picture['name'])){
+
+        //copy to the image path
+        $move = move_uploaded_file($profile_picture['tmp_name'],$imagePath.$profile_picture['name']);
+        if($move){
+            $image = $image['name'];
+        }
+    }
 
     if($password != $confirmpassword){
         $error = "Confirm password doesnot match.";
     }elseif(!empty($username) && !empty($email)){
         //process to data entry
         
-        $sql = "INSERT INTO $tablename(fullname,username,email,password,phoneno,address,status,role_id) VALUES ('$fullname','$username','$email',md5('$password'),'$phoneno','$address','$status','$role_id')";
+        $sql = "INSERT INTO $tablename(fullname,username,email,password,phoneno,address,status,role_id,profile_picture) VALUES ('$fullname','$username','$email',md5('$password'),'$phoneno','$address','$status','$role_id','$profile_pictures')";
         // var_dump($sql);
 
         $query = mysqli_query($conn,$sql);
@@ -86,9 +96,20 @@ if(isset($_POST['save'])){
     $address = $_POST['address'];
     $status = $_POST['status'];
     $role_id = $_POST['role_id'];
+    $profile_picture = $_FILES['profile_picture'];
+    // var_dump($profile_picture);
     // $id = $_POST['edit'];
-    $id = $_GET['edit'];
-    // $id = $_POST['id'];
+    // $id = $_GET['edit'];
+    $id = $_POST['id'];
+
+    if(isset($profile_picture['name']) && !empty($profile_picture['name'])){
+
+        //copy to the image path
+        $move = move_uploaded_file($profile_picture['tmp_name'],$imagePath.$profile_picture['name']);
+        if($move){
+            $profile_picture = $profile_picture['name'];
+        }
+    }
 
     if($password != $confirmpassword){
         $msg = "Confirm password doesnot match.";
@@ -96,14 +117,23 @@ if(isset($_POST['save'])){
         
         //working to encrypt the password if changed
         $sql = "SELECT password FROM $tablename WHERE id = '$id'";
+        // var_dump($sql);
         $query = mysqli_query($conn,$sql);
         $data = mysqli_fetch_array($query);
         if($data['password'] != $password){
             $password = md5($password);
         }
         
-        //process to data entry        
-        $sql = "UPDATE $tablename SET fullname = '$fullname', username ='$username', email='$email', password='$password', phoneno='$phoneno', address='$address', status = '$status',role_id = '$role_id' WHERE id = '$id'";
+        //process to data entry   
+        if(isset($profile_picture['name']) && !empty($profile_picture['name'])){
+
+            //copy to the image path
+            $move = move_uploaded_file($profile_picture['tmp_name'],$imagePath.$profile_picture['name']);
+            if($move){
+                $profile_picture = $profile_picture['name'];
+            }
+        }     
+        $sql = "UPDATE $tablename SET fullname = '$fullname', username ='$username', email='$email', password='$password', phoneno='$phoneno', address='$address', status = '$status',role_id = '$role_id', profile_picture = '$profile_picture' WHERE id = '$id'";
         // echo $sql;
         $query = mysqli_query($conn,$sql);
         // $query.mysqli_error($conn);

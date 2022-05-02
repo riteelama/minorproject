@@ -21,21 +21,22 @@
     		<form action="<?php echo $_SERVER['PHP_SELF']; echo isset($_GET['page'])?'?page='.$_GET['page']:'';?>" method="POST" id="categoryform" enctype="multipart/form-data">
                 <div class="form-group has-error">
     		        <label for="title">Title</label>
-    		        <input type="text" class="form-control" name="title" value="<?php echo isset($editData)?$editData['title']:'';?>"/>
+    		        <input type="text" class="form-control" name="title" value = "<?php echo isset($editData)?$editData['title']:'';?>"/>
     		        <!-- <span class="help-block">Input the title</span> -->
     		    </div>
 
     		    <div class="form-group">
     		        <label for="description">Description</label>
-    		        <textarea rows="5" class="form-control" name="description" value="<?php echo isset($editData)?$editData['description']:'';?>"></textarea>
+    		        <textarea rows="5" class="form-control" name="description"><?php echo isset($editData)?$editData['description']:'';?></textarea>
     		    </div>
 
-                <div class="form-group">
-    		        <label for="seotitle">Choose an image</label>
-    		        <input type="file" class="form-control" name="image" value="<?php echo isset($editData)?$editData['image']:'';?>"/>
+				<div class="form-group has-error">
+    		        <label for="image">Choose an image</label>
+					<input type="file" name="image" value="<?php echo isset($editData)?$editData['image']:'';?>" class="form-control">
+    		        <!-- <span class="help-block">Input the title</span> -->
     		    </div>
 
-    		   <div class="form-group">
+				<div class="form-group">
                <select name="status" id="status" class="form-select" selected style="border-radius:20px;">
                     <?php 
                         $active = 'selected="selected"';
@@ -54,12 +55,12 @@
     		    
     		    <div class="form-group">
     		        <button type="submit" class="btn btn-success" name="create">
-    		            Create Category
+    		            Create Package
     		        </button>
     		        <button type="submit" class="btn btn-primary" name="save">
-    		            Update Category
+    		            Update Package
     		        </button>
-					<input type="hidden" name="id" value=<?php echo $editData['id'];?>>
+					<input type="hidden" name="id" value=<?php echo isset($editData)?$editData['id']:'';?>>
     		    </div>
     		    
     		</form>
