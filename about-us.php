@@ -71,7 +71,7 @@ include "frontend/includes/about-header.php";
               <div class="event-default-caption"><a class="button button-xs button-secondary button-nina" href="#">learn more</a></div>
             </div>
             <div class="event-default-inner">
-              <h5><a class="event-default-title" href="#"><?php echo $row['name'];?></a></h5><span class="heading-5"><?php echo $row['price'];?></span>
+              <h5><a class="event-default-title" href="package-view.php?id=<?php echo $row['id']?>"><?php echo $row['name'];?></a></h5><span class="heading-5"><?php echo $row['price'];?></span>
             </div>
           </article>
         </div>

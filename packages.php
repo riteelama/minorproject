@@ -1,15 +1,15 @@
 <?php
-include "frontend/includes/blog-header.php";
+include "frontend/includes/header.php";
 ?>
 <!-- Page content-->
 <div class="container">
     <div class="row">
-        <!-- Blog entries-->
+        <!-- Packages entries-->
         <div class="col-md-8 offset-md-2">
-            <!-- Featured blog post-->
+            <!-- Featured packages post-->
             <div class="card mb-4">
                 <?php 
-                    $sql = "SELECT * FROM posts WHERE status = '1' ORDER BY id ASC";
+                    $sql = "SELECT * FROM packages WHERE status = '1' ORDER BY id ASC";
                     $query = mysqli_query($conn,$sql);
                     while($row=mysqli_fetch_assoc($query)):
                     // $id = $_GET['id'];
@@ -17,9 +17,9 @@ include "frontend/includes/blog-header.php";
                 <img class="card-img-top" src="uploads/images/<?php echo $row['image'];?>" alt="" />
                 <div class="card-body">
                     <div class="small text-muted"><?php echo $row['postdate'];?></div>
-                    <h2 class="card-title"><?php echo $row['title'];?></h2>
-                    <p class="card-text"><?php echo $row['description'];?></p>
-                    <a class="btn btn-primary" href="single.php?id=<?php echo $row['id'];?>">Read more →</a>
+                    <h2 class="card-title"><?php echo $row['name'];?></h2>
+                    <p class="card-text"><?php echo $row['excerpt'];?></p>
+                    <a class="btn btn-primary" href="package-view.php?id=<?php echo $row['id'];?>">Read more →</a>
                 </div>
                 <?php endwhile ?>
             </div>

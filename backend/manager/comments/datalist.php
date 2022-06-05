@@ -45,7 +45,7 @@
                         }else{
                     ?>
                     <tr>
-                            <td colspan="8">No data found</td>
+                            <td colspan="8">No comments found</td>
                             <!-- <td></td>
                             <td></td>
                             <td></td>

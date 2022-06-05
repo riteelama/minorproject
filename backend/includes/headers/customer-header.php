@@ -104,7 +104,7 @@
                 Booking Management
             </div>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Nav Item - Booking Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">

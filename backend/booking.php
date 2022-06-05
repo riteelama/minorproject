@@ -8,55 +8,42 @@ include "includes/dbconfig.php";
 $limit = 5;
 $imagePath = "../uploads/images/";
 
-//to check the user id
+// to check the user id
 if(isset($_SESSION['loginAccess'])){
     $email = $_SESSION['loginAccess'];
     $query = mysqli_query($conn,"SELECT * FROM users WHERE email = '$email'");
     $rows = mysqli_fetch_assoc($query);
     $agent_id = $rows['id'];
-    // var_dump($agent_id);
+    $user_name = $rows['fullname'];
 }
 
-//to create new record
-if(isset($_POST['create'])){
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $excerpt = $_POST['excerpt'];
-    $price = $_POST['price'];
-    $image = $_FILES['image'];
-    // print_r($image['name']);
-    // die();
+//to book new package
+if(isset($_POST['book'])){
+    $package_id = $_POST['package_id'];
+    $package_name = $_POST['package_name'];
     $status = $_POST['status'];
+    $id = $_POST['user_custid'];
+    $name = $_POST['user_name'];
+
     
-
-    if(isset($image['name']) && !empty($image['name'])){
-
-        //copy to the image path
-        $move = move_uploaded_file($image['tmp_name'],$imagePath.$image['name']);
-        if($move){
-            $image = $image['name'];
-            // var_dump($image);
-        }
-    }
-
-    if(!empty($name) && !empty($description)){
+    if(!empty($package_id)){
         //process to data entry
         
-        $sql = "INSERT INTO $tablename(name,description,excerpt,price,image,user_id_packages,status) VALUES ('$name','$description','$excerpt','$price','$image','$agent_id','$status')";
+        $sql = "INSERT INTO $tablename(package_id,package_name,user_custid,user_name,status) VALUES ('$package_id','$package_name','$agent_id','$user_name','$status')";
         // var_dump($sql);
 
         $query = mysqli_query($conn,$sql);
         // svar_dump($query);
         if($query){
-            $success = "Category has been successfully created.";
+            $success = "Booking has been successfully created.";
             header("location:login.php");
         }
         else {
-            $error = "Title and description already exists";
+            $error = "Failed to connect to MySQL: " . mysqli_error($conn);
             // echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
     }else {
-        $error = "Title and description cannot be blank";
+        $error = "Please select a package";
     }
 }
 // var_dump($id);
@@ -85,36 +72,16 @@ if(isset($_GET['edit'])){
     $sql = "SELECT * FROM $tablename WHERE id = '$id'";
     $query = mysqli_query($conn,$sql);
     $editData  = mysqli_fetch_array($query);
-    // echo $editData["confirm-password"];
-    // die();
-    // print_r($editData);
-    // die();
-}
-
-//to update existing record
-if(isset($_POST['save'])){
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $excerpt = $_POST['excerpt'];
-    $price = $_POST['price'];
-    $status = $_POST['status'];
-    // $confirmpassword = $_POST['confirmpassword'];
-    $id = $_POST['id'];  
-    $image = $_FILES['image'];
-
-    if(isset($image['name']) && !empty($image['name'])){
-
-        //copy to the image path
-        $move = move_uploaded_file($image['tmp_name'],$imagePath.$image['name']);
-        if($move){
-            $image = $image['name'];
-            // var_dump($image);
-        }
-    }
+    $package_id = $_POST['package_id'];
+    $package_name = $_POST['package_name'];
+    $user_custid = $editData['user_custid'];
 
     //process to data entry        
-    $sql = "UPDATE $tablename SET name = '$name', description ='$description', excerpt='$excerpt', price='$price', image = '$image', status = '$status' WHERE id = '$id'";
-    // echo $sql;
+    $sql = "UPDATE $tablename SET package_name = '$package_name', package_id = '$package_id' WHERE id = '$id'";
+    var_dump($package_id);
+    var_dump($package_name);
+    var_dump($user_custid);
+
     $query = mysqli_query($conn,$sql);
     // $query.mysqli_error($conn);
     if($query){
@@ -125,23 +92,8 @@ if(isset($_POST['save'])){
         // echo "Failed to connect to MySQL: " . mysqli_connect_error();
     
     }
+    
 }
-
-
-
-
-
-//to change the status of the record
-// if(isset($_GET['status'])){
-//     $id = $_GET['status'];
-//     $sql = "UPDATE $tablename SET status = !status WHERE id = '$id'";
-//     $query = mysqli_query($conn,$sql);
-//     // $editData  = mysqli_fetch_array($query);
-//     if($query){
-//         $msg = "Package status has been successfully changed.";
-//     }
-// }
-
 
 //to search records
 if(isset($_POST['search-btn'])){
@@ -152,44 +104,36 @@ if(isset($_POST['search-btn'])){
     // echo $sql;
 }
 else{
-// working with pagination
-$start = 0;
-if(isset($_GET['page'])){
-    $page = $_GET['page'];
-    if($page <= 1){
-        $page = 0;
-    }
-    else 
-    $page = $page - 1;
-
-
-    $start = $page*$limit;
-}
-
-
-    //find all records
-$sql = "SELECT * FROM $tablename WHERE user_custid = '$agent_id' LIMIT $start,$limit";
+//find all records
+$sql = "SELECT * FROM $tablename WHERE user_custid = '$agent_id'";
 // var_dump($sql);
 }
 
 $query = mysqli_query($conn,$sql);
+$count = mysqli_num_rows($query);
 // // print_r(mysqli_fetch_array($query));
 // // print_r(mysqli_fetch_array($query));
-$rowsSize = mysqli_num_rows($query);
-if($rowsSize>0){
-    $count = $rowsSize;
-}
-else {
-    "";
-}
+// $rowsSize = mysqli_num_rows($query);
+// if($rowsSize>0){
+//     $count = $rowsSize;
+// }
+// else {
+//     "";
+// }
 // print_r($count);
 
 include "includes/headers/customer-header.php";
 
 //form, search and datalist by login
-if(isset($_GET['new']) or isset($_GET['edit'])){
+if(isset($_GET['new'])){
     include "manager/$type/form.php";
-}else {
+}
+    
+elseif(isset($_GET['edit'])){
+    include "manager/$type/edit.php";
+}
+
+else {
     include "manager/$type/search.php";
     include "manager/$type/datalist.php";
 }

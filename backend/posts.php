@@ -182,7 +182,7 @@ if(isset($_GET['page'])){
 
 
     //find all records
-$sql = "SELECT * FROM $tablename WHERE user_id = '$user_id' LIMIT $start,$limit ";
+$sql = "SELECT * FROM $tablename WHERE user_id = '$user_id'";
 // var_dump($sql);
 }
 

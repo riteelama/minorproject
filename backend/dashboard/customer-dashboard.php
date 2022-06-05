@@ -30,9 +30,7 @@ include "includes/headers/customer-header.php";
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="myAreaChart"></canvas>
-                    </div>
+                    <a href="booking.php" class="text-dark">Your Booking</a>
                 </div>
             </div>
         </div>
@@ -47,9 +45,22 @@ include "includes/headers/customer-header.php";
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart"></canvas>
-                    </div>
+                <a href="comments.php" class="text-dark">Your Comments</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Posts -->
+        <div class="col-xl-4 col-lg-8">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">View your Posts</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <a href="posts.php" class="text-dark">Your posts</a>
                 </div>
             </div>
         </div>

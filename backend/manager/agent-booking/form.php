@@ -16,7 +16,7 @@
 	    
 	    <div class="col-md-8 col-md-offset-2">
 	        
-    		<h1>Perform package booking</h1>
+    		<h1>Create or Edit Package</h1>
     		
     		<form action="<?php echo $_SERVER['PHP_SELF']; echo isset($_GET['page'])?'?page='.$_GET['page']:'';?>" method="POST" id="categoryform" enctype="multipart/form-data">
 			<div class="form-group">
@@ -29,7 +29,7 @@
                         while($row = mysqli_fetch_assoc($query)){
                             $selected = '';
                             if(isset($editData)){
-                                if($editData['package_id'] == $row['id']){
+                                if($editData['category_id'] == $row['id']){
                                     $selected = 'selected="selected"';
                                 }
                             }
@@ -42,18 +42,8 @@
                 </select>
     		    </div>
 
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <div class="text-danger" style="font-weight:bold; font-size: 20px;">
-                        Please enter package name here.
-                    </div>
-                    <label for="package_name">Package Name</label>
-                    <input type="text" class="form-control form-control-user"
-                        id="package_name" name="package_name" placeholder="Package Name">
-                </div>
-                
-                <br>
     		   <div class="form-group">
-               <select name="status" disabled id="status" class="form-select" selected style="border-radius:20px;">
+               <select name="status" id="status" class="form-select" selected style="border-radius:20px;">
                     <?php 
                         $active = 'selected="selected"';
                         $inactive = '';
@@ -64,17 +54,20 @@
                             }
                         }
                     ?>
-                    <option value="1" <?php echo $inactive;?>>Active</option>
+                    <option value="1" <?php echo $inactive; ?>>Active</option>
                     <option value="0" <?php echo $active; ?>>In-active</option>
                 </select>
                </div>
+                
+               <div class="form-group">
+    		        <input type="text" name="package_id" value="<?php echo $row['package_id'];?>">
+    		            
+    		    </div>
 
     		    <div class="form-group">
     		        <button type="submit" class="btn btn-success" name="book">
     		            Complete Booking
     		        </button>
-
-                    <input type="hidden" name="id" value=<?php echo isset($editData)?$editData['user_name']:'';?>>
     		    </div>
     		    
     		</form>

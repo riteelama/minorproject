@@ -1,7 +1,7 @@
-<?php 
-// include "includes/header.php";
-?>
-<!-- Custom fonts for this template-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -15,8 +15,8 @@
 	<div class="row">
 	    
 	    <div class="col-md-8 col-md-offset-2">
-	        
-    		<h1>Perform package booking</h1>
+
+    		<h1>Edit your booking</h1>
     		
     		<form action="<?php echo $_SERVER['PHP_SELF']; echo isset($_GET['page'])?'?page='.$_GET['page']:'';?>" method="POST" id="categoryform" enctype="multipart/form-data">
 			<div class="form-group">
@@ -44,11 +44,11 @@
 
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="text-danger" style="font-weight:bold; font-size: 20px;">
-                        Please enter package name here.
+                        Enter package name here.
                     </div>
                     <label for="package_name">Package Name</label>
                     <input type="text" class="form-control form-control-user"
-                        id="package_name" name="package_name" placeholder="Package Name">
+                        id="package_name" name="package_name" value="<?php echo isset($editData)?$editData['package_name']:"";?>">
                 </div>
                 
                 <br>
@@ -70,11 +70,11 @@
                </div>
 
     		    <div class="form-group">
-    		        <button type="submit" class="btn btn-success" name="book">
-    		            Complete Booking
+    		        <button type="submit" class="btn btn-success" name="edit">
+    		            Update Booking
     		        </button>
 
-                    <input type="hidden" name="id" value=<?php echo isset($editData)?$editData['user_name']:'';?>>
+                    <input type="hidden" name="id" value=<?php echo isset($editData)?$editData['user_custid']:'';?>>
     		    </div>
     		    
     		</form>
@@ -83,4 +83,5 @@
 	</div>
 </div>
 
-
+</body>
+</html>

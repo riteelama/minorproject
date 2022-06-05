@@ -1,7 +1,7 @@
 <!--BODY SECTION -->
 <!--Including header file in site-->
 <?php 
-include "frontend/includes/header.php";
+include "frontend/includes/main-header.php";
 ?>
 <section class="section">
   <div class="swiper-form-wrap">
@@ -21,40 +21,14 @@ include "frontend/includes/header.php";
                 <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
                   <h3><?php echo $row['title'];?></h3>
                   <div class="divider divider-decorate"></div>
-                  <p class="text-spacing-sm">We offer a variety of destinations to travel to, ranging from exotic to some extreme ones. They include very popular countries and cities like Paris, Rio de Janeiro, Cairo and a lot of others.</p><a class="button button-default-outline button-nina button-sm" href="#">learn more</a>
+                  <p class="text-spacing-sm">We offer a variety of destinations to travel to, ranging from exotic to some extreme ones. They include very popular countries and cities like Paris, Rio de Janeiro, Cairo and a lot of others.</p><a class="button button-default-outline button-nina button-sm" href="single.php?id=<?php echo $row['id'];?>">learn more</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
           <?php endwhile ?>
-        <!-- <div class="swiper-slide" data-slide-bg="frontend/includes/images/swiper-slide-2.jpg">
-          <div class="swiper-slide-caption">
-            <div class="container container-bigger swiper-main-section">
-              <div class="row row-fix justify-content-sm-center justify-content-md-start">
-                <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
-                  <h3>The Trip of Your Dream</h3>
-                  <div class="divider divider-decorate"></div>
-                  <p class="text-spacing-sm">Our travel agency is ready to offer you an exciting vacation that is designed to fit your own needs and wishes. Whether it’s an exotic cruise or a trip to your favorite resort, you will surely have the best experience.</p><a class="button button-default-outline button-nina button-sm" href="#">learn more</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide" data-slide-bg="frontend/includes/images/swiper-slide-3.jpg">
-          <div class="swiper-slide-caption">
-            <div class="container container-bigger swiper-main-section">
-              <div class="row row-fix justify-content-sm-center justify-content-md-start">
-                <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
-                  <h3>unique Travel Insights</h3>
-                  <div class="divider divider-decorate"></div>
-                  <p class="text-spacing-sm">Our team is ready to provide you with unique weekly travel insights that include photos, videos, and articles about untravelled tourist paths. We know everything about the places you’ve never been to!</p><a class="button button-default-outline button-nina button-sm" href="#">learn more</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+        
       <!-- Swiper controls-->
       <div class="swiper-pagination-wrap">
         <div class="container container-bigger">
@@ -66,82 +40,10 @@ include "frontend/includes/header.php";
         </div>
       </div>
     </div>
-    <div class="container container-bigger form-request-wrap form-request-wrap-modern">
-      <div class="row row-fix justify-content-sm-center justify-content-lg-end">
-        <div class="col-lg-6 col-xxl-5">
-          <div class="form-request form-request-modern bg-gray-lighter novi-background">
-            <h4>Find your Tour</h4>
-            <!-- RD Mailform-->
-            <form class="rd-mailform form-fix">
-              <div class="row row-20 row-fix">
-                <div class="col-sm-12">
-                  <label class="form-label-outside">From</label>
-                  <div class="form-wrap form-wrap-inline">
-                    <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
-                      <option value="1">New York</option>
-                      <option value="2">Lisbon</option>
-                      <option value="3">Stockholm</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <label class="form-label-outside">To</label>
-                  <div class="form-wrap form-wrap-inline">
-                    <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
-                      <option value="1">Chicago</option>
-                      <option value="2">Madrid</option>
-                      <option value="3">Paris</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                  <label class="form-label-outside">Depart Date</label>
-                  <div class="form-wrap form-wrap-validation">
-                    <!-- Select -->
-                    <input class="form-input" id="dateForm" name="date" type="text" data-time-picker="date">
-                    <label class="form-label" for="dateForm">Choose the date</label>
-                    <!--select.form-input.select-filter(data-placeholder="All", data-minimum-results-for-search="Infinity",  name='city')-->
-                    <!--  option(value="1") Choose the date-->
-                    <!--  option(value="2") Primary-->
-                    <!--  option(value="3") Middle-->
-                  </div>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                  <label class="form-label-outside">Duration</label>
-                  <div class="form-wrap form-wrap-validation">
-                    <!-- Select 2-->
-                    <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
-                      <option value="1">Any length</option>
-                      <option value="2">2 days</option>
-                      <option value="3">3 days</option>
-                      <option value="4">4 days</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <label class="form-label-outside">Adults</label>
-                  <div class="form-wrap form-wrap-modern">
-                    <input class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="2">
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <label class="form-label-outside">Children</label>
-                  <div class="form-wrap form-wrap-modern">
-                    <input class="form-input input-append" id="form-element-stepper-1" type="number" min="0" max="300" value="0">
-                  </div>
-                </div>
-              </div>
-              <div class="form-wrap form-button">
-                <button class="button button-block button-secondary" type="submit">search flight</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
+<!--packages section-->
 <section class="section section-variant-1 bg-default novi-background bg-cover"> 
   <div class="container container-wide">
     <div class="row row-fix justify-content-xl-end row-30 text-center text-xl-left">
@@ -151,7 +53,7 @@ include "frontend/includes/header.php";
         </div>
         <hr class="divider divider-decorate">
       </div>
-      <div class="col-xl-3 text-xl-right"><a class="button button-secondary button-nina" href="#">view all packages</a></div>
+      <div class="col-xl-3 text-xl-right"><a class="button button-secondary button-nina" href="packages.php">view all packages</a></div>
     </div>
     <!--PACKAGES SHOWCASE-->
       <div class="row row-50">
@@ -165,10 +67,10 @@ include "frontend/includes/header.php";
             <div class="event-default">
               <figure class="event-default-image"><img src="uploads/images/<?php echo $row['image'];?>" alt="" width="570" height="370"/>
               </figure>
-              <div class="event-default-caption"><a class="button button-xs button-secondary button-nina" href="#">learn more</a></div>
+              <div class="event-default-caption"><a class="button button-xs button-secondary button-nina" href="package-view.php?id=<?php echo $row['id'];?>">learn more</a></div>
             </div>
             <div class="event-default-inner">
-              <h5><a class="event-default-title" href="#"><?php echo $row['name'];?></a></h5><span class="heading-5"><?php echo $row['price'];?></span>
+              <h5><a class="event-default-title" href="package-view.php?id=<?php echo $row['id'];?>"><?php echo $row['name'];?></a></h5><span class="heading-5"><?php echo $row['price'];?></span>
             </div>
           </article>
         </div>
@@ -193,10 +95,10 @@ include "frontend/includes/header.php";
         $query = mysqli_query($conn,$sql);
         while($row = mysqli_fetch_assoc($query)):
         ?>  
-        <article class="post-blog"><a class="post-blog-image" href="#"><img src="uploads/images/<?php echo $row['image'];?>" alt="" width="570" height="415"/></a>
+        <article class="post-blog"><a class="post-blog-image" href="single.php?id=<?php echo $row['id'];?>"><img src="uploads/images/<?php echo $row['image'];?>" alt="" width="570" height="415"/></a>
           <div class="post-blog-caption">
               <div class="post-blog-caption-body">
-                <h5><a class="post-blog-title" href="#"><?php echo $row['title'];?></a></h5>
+                <h5><a class="post-blog-title" href="single.php?id=<?php echo $row['id'];?>"><?php echo $row['title'];?></a></h5>
               </div>
               <div class="post-blog-caption-footer">
                 <time datetime="2019"><?php echo $row['postdate'];?></time>
