@@ -1,41 +1,40 @@
-<?php 
+<?php
 //starting session
 session_start();
 
 //check for a session key to redirect to the access page
-if(isset($_SESSION['loginAccess'])){
-  header("location: index.php"); //content type definer -> define the location of request 
+if (isset($_SESSION['loginAccess'])) {
+    header("location: index.php"); //content type definer -> define the location of request 
 }
 
 //database connection
 include "includes/dbconfig.php";
 
 //check for login
-if(isset($_POST['login'])){
+if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
-  
+
     //check email and password
     $sql = "SELECT * FROM users WHERE email = '$email' AND password = md5('$password') AND status = '1'";
-    $query = mysqli_query($conn,$sql);
+    $query = mysqli_query($conn, $sql);
     // echo $sql;
     $data = mysqli_fetch_assoc($query);
-    
-    if($data){
+
+    if ($data) {
 
         //for cookie
-        if(isset($_POST['rem'])){
+        if (isset($_POST['rem'])) {
             $time = time() + 3600; //for one hour
-            setcookie("myCookie",$email,$time);
+            setcookie("myCookie", $email, $time);
         }
 
 
-       $_SESSION['loginAccess'] = $email;
-       header("location: index.php");
+        $_SESSION['loginAccess'] = $email;
+        header("location: index.php");
     } else {
         $error = "Invalid email and password";
     }
-
 }
 
 ?>
@@ -55,9 +54,7 @@ if(isset($_POST['login'])){
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -86,31 +83,28 @@ if(isset($_POST['login'])){
                                     </div>
                                     <form class="user" method="post">
                                         <div class="form-group">
-                                        <label for="email">Email<span style="color:red;">*</span></label>
-                                            <input type="email" name="email" class="form-control form-control-user"
-                                                id="email" aria-describedby="emailHelp"
-                                                placeholder="Enter your email..." >
+                                            <label for="email">Email<span style="color:red;">*</span></label>
+                                            <input type="email" name="email" class="form-control form-control-user" id="email" placeholder="Enter your email">
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Password<span style="color:red;">*</span></label>
-                                            <input type="password" name="password" class="form-control form-control-user"
-                                                id="password" placeholder="Password" >
+                                            <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Password">
                                         </div>
-                                        <small class="text-danger"><?php echo isset($error)? $error : "";?></small>
+                                        <small class="text-danger"><?php echo isset($error) ? $error : ""; ?></small>
 
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" name="rem" class="custom-control-input" id="rem">
-                                                <label class="custom-control-label" for="rem" >Remember
+                                                <label class="custom-control-label" for="rem">Remember
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <button type="submit" name="login" class="btn btn-user btn-block btn-primary">Login</button> 
+                                        <button type="submit" name="login" class="btn btn-user btn-block btn-primary">Login</button>
                                         <hr>
                                     </form>
                                     <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="register.php">Create an Account!</a>
+                                    <div>
+                                        Don't have an account? <a class="small" href="register.php">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>

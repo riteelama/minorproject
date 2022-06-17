@@ -36,42 +36,25 @@ if(isset($_SESSION['loginAccess'])){
 if(isset($_POST['create'])){
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $image = $_FILES['image'];
     // $postdate = $_POST['postdate'];
     $status = $_POST['status'];
 
 
-    if(isset($image['name']) && !empty($image['name'])){
-
-        //copy to the image path
-        $move = move_uploaded_file($image['tmp_name'],$imagePath.$image['name']);
-        if($move){
-            $image = $image['name'];
-        }
-    }
-    // var_dump($image);
-    // print_r($imagePath.$image['name']);
-    // print_r($image);
-    //Array ( [name] => 274186292_1304552783376454_1356609208025864271_n.jpg [type] => image/jpeg [tmp_name] => D:\xampp\tmp\phpC6D5.tmp [error] => 0 [size] => 49634 )
-    // exit;
-
     if(!empty($title) && !empty($description)){
         //process to data entry
         
-        $sql= "INSERT INTO $tablename(title,description,image,user_id,status) VALUES ('$title','$description','$image','$user_id','$status')";
-        echo $sql;
+        $sql= "INSERT INTO $tablename(title,description,user_id_cat,status) VALUES ('$title','$description','$user_id','$status')";
+        // echo $sql;
         // die();
         $query = mysqli_query($conn,$sql);
         if($query){
             $success = "Post has been successfully created.";
-            header("location:login.php");
+            // header("location:categories.php");
         }
         else {
             $error = "Tour post and URL already exists";
             // echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-    }else {
-        $error = "Title and URL cannot be blank";
     }
 }
 
@@ -98,8 +81,9 @@ if(isset($_GET['delete'])){
 if(isset($_GET['edit'])){
     $id = $_GET['edit'];
     $sql = "SELECT * FROM $tablename WHERE id = '$id'";
+    // var_dump($sql);
     $query = mysqli_query($conn,$sql);
-    $editData  = mysqli_fetch_array($query);
+    $editData  = mysqli_fetch_assoc($query);
     // echo $editData["confirm-password"];
     // die();
     // print_r($editData);
@@ -111,22 +95,9 @@ if(isset($_POST['save'])){
     $title = $_POST['title'];
     $description = $_POST['description'];
     $status = $_POST['status'];
-    // $confirmpassword = $_POST['confirmpassword'];
     $id = $_POST['id'];  
-    $image = $_FILES['image'];
-
-    if(isset($image['name']) && !empty($image['name'])){
-
-        //copy to the image path
-        $move = move_uploaded_file($image['tmp_name'],$imagePath.$image['name']);
-        if($move){
-            $image = $image['name'];
-            // var_dump($image);
-        }
-    }
-
     //process to data entry        
-    $sql = "UPDATE $tablename SET title = '$title', description ='$description', image = '$image', status = '$status' WHERE id = '$id'";
+    $sql = "UPDATE $tablename SET title = '$title', description ='$description', status = '$status' WHERE id = '$id'";
     // echo $sql;
     $query = mysqli_query($conn,$sql);
     // $query.mysqli_error($conn);

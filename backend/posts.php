@@ -58,12 +58,11 @@ if(isset($_POST['create'])){
         //process to data entry
         
         $sql= "INSERT INTO $tablename(title,description,image,user_id,status) VALUES ('$title','$description','$image','$user_id','$status')";
-        echo $sql;
+        // echo $sql;
         // die();
         $query = mysqli_query($conn,$sql);
         if($query){
             $success = "Post has been successfully created.";
-            header("location:login.php");
         }
         else {
             $error = "Tour post and URL already exists";
@@ -182,6 +181,7 @@ if(isset($_GET['page'])){
 
 
     //find all records
+// $sql = "SELECT * FROM $tablename WHERE user_id = '$user_id' LIMIT $start,$limit";
 $sql = "SELECT * FROM $tablename WHERE user_id = '$user_id'";
 // var_dump($sql);
 }

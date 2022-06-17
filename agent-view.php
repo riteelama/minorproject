@@ -1,11 +1,11 @@
-<?php 
+<?php
 include "frontend/includes/blog-header.php";
 
-if(isset($_REQUEST['id'])){
+if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
 
     $sql = "SELECT * FROM users WHERE status= '1' AND id = '$id' AND role_id='2'";
-    $query = mysqli_query($conn,$sql);
+    $query = mysqli_query($conn, $sql);
 
     $subsql = "SELECT count(*) as total_row FROM packages where user_id_packages = '$id'";
     $subquery = mysqli_query($conn,$subsql);

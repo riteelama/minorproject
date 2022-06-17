@@ -42,7 +42,9 @@
 
 				<div class="form-group has-error">
     		        <label for="image">Choose an image</label>
-					<input type="file" name="image" value="<?php echo isset($editData)?$editData['image']:'';?>" class="form-control">
+					<input type="file" name="image" onchange="loadFile(event)">
+					<br>
+					<img id="output" src="../uploads/images/<?php echo $editData['image']; ?>" height="300" width="300">
     		        <!-- <span class="help-block">Input the title</span> -->
     		    </div>
 
@@ -78,5 +80,9 @@
 		
 	</div>
 </div>
-
-
+<script>
+    var loadFile = function(event) {
+      var image = document.getElementById('output');
+      image.src = URL.createObjectURL(event.target.files[0]);
+    };
+  </script>

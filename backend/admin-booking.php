@@ -162,14 +162,14 @@ if(isset($_GET['page'])){
 
 
     //find all records
-$sql = "SELECT * FROM $tablename LIMIT $start,$limit";
+$adminBookSql = "SELECT * FROM $tablename LIMIT $start,$limit";
 // var_dump($sql);
 }
 
-$query = mysqli_query($conn,$sql);
+$adminBookQuery = mysqli_query($conn,$adminBookSql);
 // // print_r(mysqli_fetch_array($query));
 // // print_r(mysqli_fetch_array($query));
-$rowsSize = mysqli_num_rows($query);
+$rowsSize = mysqli_num_rows($adminBookQuery);
 if($rowsSize>0){
     $count = $rowsSize;
 }

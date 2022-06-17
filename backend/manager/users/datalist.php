@@ -14,39 +14,38 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+                <h6 class="m-0 font-weight-bold text-primary">All Users</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <div>
                         
-                        <div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                        <thead>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table" width="100%" cellspacing="0" role="grid" style="width: 100%;">
+                        <thead class="thead-dark">
                         <?php 
                             if($count>0){
                         ?>
                             <tr role="row">
-                                <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 194px;" name="id">SN</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 296px;" name="fullname">Full Name</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 141px;" name="username">Username</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 66px;" name="email">Email</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 66px;" name="phoneno">Phoneno</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 133px;" name="address">Address</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 120px;" name="role_id">Role ID</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 120px;" name="status">Status</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Salary: activate to sort column ascending" style="width: 120px; text-align:center" name="action">Action</th></tr>
+                                <th rowspan="1" colspan="1" style="width: 75px;" name="id">SN</th>
+                                <th rowspan="1" colspan="1" style="width: 133px;" name="fullname">Full Name</th>
+                                <th rowspan="1" colspan="1" style="width: 141px;" name="username">Username</th>
+                                <th rowspan="1" colspan="1" style="width: 66px;" name="email">Email</th>
+                                <th rowspan="1" colspan="1" style="width: 66px;" name="phoneno">Phoneno</th>
+                                <th rowspan="1" colspan="1" style="width: 133px;" name="address">Address</th>
+                                <th rowspan="1" colspan="1" style="width: 120px;" name="role_id">Role ID</th>
+                                <th rowspan="1" colspan="1" style="width: 120px;" name="status">Status</th>
+                                <th rowspan="1" colspan="2" style="width: 120px; text-align:center" name="action">Action</th></tr>
                                 <?php 
                                 $sn = 1;
-                                    while($row = mysqli_fetch_assoc($query)){
+                                    while($row = mysqli_fetch_assoc($userQuery)){
                                 ?>    
                         </thead>
-                        <!-- <tfoot>
-                            <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th rowspan="1" colspan="1">Salary</th></tr>
-                        </tfoot> -->
                         <tbody>
                             
                         <tr>
-                                <td class="sorting_1"><?php echo $sn++; ?></td>
+                                <td><?php echo $sn++; ?></td>
                                 <td><?php echo $row['fullname'];?></td>
                                 <td><?php echo $row['username'];?></td>
                                 <td><?php echo $row['email'];?></td>
@@ -55,8 +54,8 @@
                                 <td><?php echo $row['role_id'];?></td>
                                 <td><a href="?status=<?php echo $row['id']; ?>" style ="color:<?php echo $row['status']?'green' : 'red'; ?>"onclick="return confirm('Are you sure to change the status of this item?')"> <?php echo $row['status']?'Active' : 'In-Active';?></a>  </td>
                                 <td colspan="2">
-                                <a href="?edit=<?php echo $row['id']; ?>" class="btn btn-success btn-block" name="edit">Edit</a>
-                                <a href="?delete=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure to delete this item?')" class="btn btn-danger btn-block" name="delete">Delete</a>
+                                <a href="?edit=<?php echo $row['id']; ?>" class="btn btn-success btn-sm" name="edit"><i class="fas fa-edit"></i> Edit</a>
+                                <a href="?delete=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure to delete this item?')" class="btn btn-danger btn-sm" name="delete"><i class="fas fa-trash-alt"></i>Delete</a>
                             </td>
                                 </td>
                         </tr>
@@ -66,7 +65,7 @@
                             }else{
                         ?>
                         <tr>
-                                <td colspan="8">No data found</td>
+                                <td colspan="8">Sorry, no users data found</td>
                                 <!-- <td></td>
                                 <td></td>
                                 <td></td>

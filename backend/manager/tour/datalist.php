@@ -18,33 +18,32 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div>
                                     
-                                    <div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table table-bordered" width="100%" cellspacing="0" role="grid" style="width: 100%;">
                                     <thead>
                                     <?php 
                                         if($count>0){
                                     ?>
                                         <tr role="row">
-                                            <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 194px;" name="id">SN</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 296px;" name="category_id">Category</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 133px;" name="title">Title</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 66px;" name="url">URL</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Salary: activate to sort column ascending" style="width: 120px; text-align:center" name="status">Status</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Salary: activate to sort column ascending" style="width: 120px; text-align:center" name="action">Action</th>
+                                            <th rowspan="1" colspan="1" style="width: 194px;" name="id">SN</th>
+                                            <th rowspan="1" colspan="1" style="width: 296px;" name="category_id">Category</th>
+                                            <th rowspan="1" colspan="1" style="width: 133px;" name="title">Title</th>
+                                            <th rowspan="1" colspan="1" style="width: 66px;" name="url">URL</th>
+                                            <th rowspan="1" colspan="2" style="width: 120px; text-align:center" name="status">Status</th>
+                                            <th rowspan="1" colspan="2" style="width: 120px; text-align:center" name="action">Action</th>
                                         </tr>
                                             <?php 
                                             $sn = 1;
                                                 while($row = mysqli_fetch_assoc($query)){
                                             ?>    
                                     </thead>
-                                    <!-- <tfoot>
-                                        <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th rowspan="1" colspan="1">Salary</th></tr>
-                                    </tfoot> -->
                                     <tbody>
                                         
                                     <tr>
-                                            <td class="sorting_1"><?php echo $sn++; ?></td>
+                                            <td><?php echo $sn++; ?></td>
                                             <td><?php echo getCatTitle($row['category_id']);?></td>
                                             <td><?php echo $row['title'];?></td>
                                             <td><?php echo $row['url'];?></td>

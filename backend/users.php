@@ -169,7 +169,7 @@ if(isset($_POST['search-btn'])){
     $searchby = $_POST['searchby'];
     $searchkey = $_POST['searchkey'];
     $sql = "SELECT * FROM $tablename WHERE $searchby LIKE '%$searchkey%'";
-    // echo $sql;
+    echo $sql;
 }
 else{
 // working with pagination
@@ -188,36 +188,15 @@ if(isset($_GET['page'])){
 
 
     //find all records
-$sql = "SELECT * FROM $tablename LIMIT $start,$limit";
+$userSql = "SELECT * FROM $tablename LIMIT $start,$limit";
+$userQuery = mysqli_query($conn,$userSql);
+$count = mysqli_num_rows($userQuery);
 }
 
-$query = mysqli_query($conn,$sql);
-// // print_r(mysqli_fetch_array($query));
-// // print_r(mysqli_fetch_array($query));
-$count = mysqli_num_rows($query);
+
 // echo $count;
 
-?>
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="logout.php">Logout</a>
-    <p>
-         <?php 
-        // echo isset($msg)?$msg:"";  -->
-        ?></p>
-    <hr>
-    <a href="?new">Add New</a>
-    <a href="?all">View All</a>
-    <?php 
-
-include "includes/header.php";
+include "includes/headers/admin-header.php";
 
 //form, search and datalist by login
 if(isset($_GET['new']) or isset($_GET['edit'])){

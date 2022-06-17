@@ -166,14 +166,15 @@ if(isset($_GET['page'])){
 
 
     //find all records
-$sql = "SELECT * FROM $tablename WHERE user_id_packages = '$agent_id' LIMIT $start,$limit";
+$packSql = "SELECT * FROM $tablename WHERE user_id_packages = '$agent_id' LIMIT $start,$limit";
 // var_dump($sql);
 }
 
-$query = mysqli_query($conn,$sql);
+$packQuery = mysqli_query($conn,$packSql);
 // // print_r(mysqli_fetch_array($query));
 // // print_r(mysqli_fetch_array($query));
-$count = mysqli_num_rows($query);
+$count = mysqli_num_rows($packQuery);
+var_dump($count);
 // echo $count;
 
 include "includes/headers/agent-header.php";

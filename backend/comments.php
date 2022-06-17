@@ -22,14 +22,14 @@ if(isset($_POST['create'])){
     if(!empty($comments)){
         //process to data entry
         
-        $sql = "INSERT INTO $tablename(comments,user_id_com) VALUES ('$comments','$user_id')";
-        // var_dump($sql);
+        $sql = "INSERT INTO $tablename(comments,user_comid) VALUES ('$comments','$user_id')";
+        var_dump($sql);
 
         $query = mysqli_query($conn,$sql);
         // svar_dump($query);
         if($query){
             $success = "Comments has been successfully created.";
-            header("location:login.php");
+            header("location:comments.php");
         }
         else {
             $error = "Failed to connect to MYSQL, MYSQLI says:".mysqli_error($conn);
@@ -131,14 +131,13 @@ if(isset($_GET['page'])){
 
 
     //find all records
-$sql = "SELECT * FROM $tablename WHERE user_comid = '$user_id'";
+$commSql = "SELECT * FROM $tablename WHERE user_comid = '$user_id'";
+$commQuery = mysqli_query($conn,$commSql);
+$count = mysqli_num_rows($commQuery);
 // var_dump($sql);
 }
 
-$query = mysqli_query($conn,$sql);
-// // print_r(mysqli_fetch_array($query));
-// // print_r(mysqli_fetch_array($query));
-$count = mysqli_num_rows($query);
+
 // echo $count;
 
 

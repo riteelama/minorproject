@@ -19,10 +19,11 @@
                 <div class="card-body">
                     <h6 class ="mb-3 font-weight-bold text-danger"><?php echo isset($error)?$error:'';?></h6>
                     <!-- <div class="table-responsive"> -->
-                        <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div>
                             
-                            <div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <thead>
+                            <div class="row">
+                                <div class="col-sm-12"><table class="table" width="100%" cellspacing="0" role="grid" style="width: 100%;">
+                            <thead class="thead-dark">
                           
                                 <tr role="row">
                                     <th name="id">SN</th>
@@ -38,7 +39,7 @@
                                     if($count>0){
     
                                     $sn = 1;
-                                        while($row = mysqli_fetch_assoc($query)){
+                                        while($row = mysqli_fetch_assoc($packQuery)){
                                     ?>    
                             </thead>
                             <!-- <tfoot>
@@ -47,16 +48,16 @@
                             <tbody>
                                 
                             <tr>
-                                    <td><?php echo $row['id']; ?></td>
+                                    <td><?php echo $sn++;?></td>
                                     <td><?php echo $row['name'];?></td>
-                                    <td><?php echo $row['excerpt'];?></td>
+                                    <td width="400px"><?php echo $row['excerpt'];?></td>
                                     <td><?php echo $row['price'];?></td>
                                     <td><?php echo $row['image'];?></td>
                                     <td><?php echo $row['postdate'];?>
                                     <td><a href="?status=<?php echo $row['id']; ?>" style ="color:<?php echo $row['status']?'green' : 'red'; ?>"onclick="return confirm('Are you sure to change the status of this item?')"> <?php echo $row['status']?'Active' : 'In-Active';?></a>  </td>
                                     <td colspan="2">
-                                        <a href="?edit=<?php echo $row['id']; ?>" class="btn btn-success btn-block" name="save">Edit</a>
-                                        <a href="?delete=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure to delete this item?')" class="btn btn-danger btn-block">Delete</a>
+                                        <a href="?edit=<?php echo $row['id']; ?>" class="btn btn-success" name="save"><i class="fas fa-edit"></i> Edit</a>
+                                        <a href="?delete=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure to delete this item?')" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
                                     </td>
                             </tr>
                             <?php
@@ -76,11 +77,12 @@
                             <?php } ?>
                             <tr>
                                 <!--pagging-->
-                                    
+<!--                                     
                                 <td colspan="9" align="center">
-                                    <?php include "includes/pagination.php"; ?>
+                                    <?php 
+                                    // include "includes/pagination.php"; ?>
                                     </div> 
-                                </td>
+                                </td> -->
                             </tr>
                         </table>
                     </div>

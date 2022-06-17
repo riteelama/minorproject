@@ -250,7 +250,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #b37600;
+    color: #00b34d;
     text-decoration: underline;
     outline: none;
 }
@@ -11673,7 +11673,15 @@ html[class*="ie"] .dtp-hour-hand {
 
 .rd-navbar-brand a {
     display: inline-block;
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
 }
+
+/* .rd-navbar-brand a:hover {
+    display: inline-block;
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+} */
 
 .rd-navbar-brand .logo-inverse {
     display: none;
@@ -15103,8 +15111,8 @@ html.tablet .ui-to-top {
 .swiper-container .button-default-outline,
 .swiper-container .button-default-outline:focus {
     color: #ffffff;
-    background-color: transparent;
-    border-color: #ffffff;
+    background: #2c20c0;
+    border-color: #2c20c0;
 }
 
 .swiper-container .button-default-outline:hover,

@@ -1,5 +1,6 @@
 <?php
-include "frontend/includes/blog-header.php";
+$currentPage = 'blog';
+include "frontend/includes/header.php";
 ?>
 <!-- Page content-->
 <div class="container">

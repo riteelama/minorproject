@@ -1,64 +1,61 @@
-<?php 
+<?php
 // include "includes/session.php";
 // $type = "index";
 include "includes/headers/agent-header.php";
-
+include "includes/other-counter.php";
 ?>
 
 <!-- Content Wrapper -->
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            
-            <h1 class="h3 mb-0 text-gray-800">Agents Dashboard</h1>
-        </div>
-        
-        <!-- Content Row -->
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
-        <div class="row">
+        <h1 class="h3 mb-0 text-gray-800">Welecome <?php echo ucfirst($userRows['username']); ?>, This is your admin dashboard.</h1>
+    </div>
 
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div
-                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">View your packages</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <a href="packages.php" class="text-dark">Packages</a>
-                    </div>
+    <!-- Content Row -->
+
+    <div class="row">
+        <!-- Packages -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 text-lg font-weight-bold text-success">Packages</h6>
                 </div>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div
-                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Your posts title</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                    <a href="posts.php" class="text-dark">Posts</a>
-                    </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                <p class="text-secondary font-weight-bold">Total Packages: <span class="text-dark"><?php echo $packsTotal;?></span></p>
+                    <a href="packages.php">View All Packages</a>
                 </div>
             </div>
         </div>
 
-    </div>
-    <!-- /.container-fluid -->
+        <!-- Posts -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 text-lg font-weight-bold text-warning">Posts</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <p class="text-info text-lg font-weight-bold">Total Posts: <span class="text-dark"><?php echo $postTotal;?></span></p>
+                    <a href="posts.php">View your all posts</a>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- /.container-fluid -->
 
-    </div>
-    <!-- End of Main Content -->
+</div>
+<!-- End of Main Content -->
 </div>
 </div>
 
-<?php 
+<?php
 
 // include "includes/footer.php";
 
