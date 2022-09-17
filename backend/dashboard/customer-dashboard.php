@@ -28,7 +28,7 @@ include "includes/other-counter.php";
                         <div class="col mr-2">
                             <div class="text-base font-weight-bold text-success text-uppercase mb-1">
                                 Booked Packages</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $bookPacksTotal; ?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo absint( $bookPacksTotal ); ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-folder fa-2x text-gray-600"></i>
