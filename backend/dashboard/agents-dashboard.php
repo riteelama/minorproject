@@ -27,7 +27,7 @@ include "includes/other-counter.php";
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                <p class="text-secondary font-weight-bold">Total Packages: <span class="text-dark"><?php echo $packsTotal;?></span></p>
+                <p class="text-secondary font-weight-bold">Total Packages: <span class="text-dark"><?php echo absint( $packsTotal );?></span></p>
                     <a href="packages.php">View All Packages</a>
                 </div>
             </div>
