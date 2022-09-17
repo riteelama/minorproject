@@ -3,6 +3,8 @@
 <?php
 $currentPage = 'about';
 include "frontend/includes/header.php";
+
+
 ?>
 <!-- hi, we are brave-->
 <!--INTRO SECTION-->
@@ -14,13 +16,12 @@ include "frontend/includes/header.php";
                 $sql = "SELECT * FROM users WHERE status='1' AND id='1'";
                 $query = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($query);
+
+                echo '<h3>Hi There, Welcome to Travel Package booking</h3>';
+                echo '<div class="divider divider-decorate"></div>';
+                echo '<p class="heading-5">We are glad to a part of your great trekking and tour plan. We allow you to create packages as an agents annd book the packages as an cutsomers. </p>';
+                echo '<p class="text-spacing-sm">Hop on boat with us to get into the great journeys of your life with us.</p>'
                 ?>
-                <h3>Hi There, Welcome to Travel Package booking</h3>
-                <div class="divider divider-decorate"></div>
-                <p class="heading-5">We are glad to a part of your great trekking and tour plan. We allow you to create
-                    packages as an agents annd book the packages as an cutsomers. </p>
-                <p class="text-spacing-sm">Hop on boat with us to get into the great journeys of your life with us.
-                </p>
             </div>
             <div class="col-md-10 col-lg-6"><img src="uploads/images/about-banner.jpg" alt="" width="720" height="459"/>
             </div>
