@@ -14,8 +14,3 @@ $conn = mysqli_connect(hostname,username,password,database);
 // }else {
 //     echo "Failed to connect".mysqli_connect_error();
 // }
-
-?>
-
-
-
