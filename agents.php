@@ -1,6 +1,4 @@
-<?php
-include "frontend/includes/header.php";
-?>
+<?php include "frontend/includes/header.php"; ?>
 
 <div class="container">
     <div class="row">
@@ -24,4 +22,3 @@ include "frontend/includes/header.php";
 </div>
 <?php
 include "frontend/includes/footer.php";
-?>
