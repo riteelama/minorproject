@@ -29,5 +29,3 @@ $postsTotal = $postsRow[0];
 // $catQuery = mysqli_query($conn, $catSql);
 // $catRow = mysqli_fetch_array($catQuery);
 // $catTotal = $catRow[0];
-
-?>
