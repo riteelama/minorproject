@@ -37,4 +37,3 @@ include "frontend/includes/header.php";
         <!-- Side widgets-->
 <?php
 include "frontend/includes/footer.php";
-?><

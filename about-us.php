@@ -93,4 +93,3 @@ include "frontend/includes/header.php";
 <!-- INCLUDING Footer SECTION-->
 <?php
 include "frontend/includes/footer.php";
-?>
