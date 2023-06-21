@@ -119,8 +119,8 @@
                                 </div>
 
                                 <div class="form-group has-error">
-                                    <label for="image">Choose an profile picture</label>
-                                    <input type="file" name="profile_picture" value="<?php echo isset($editData)?$editData['profile_picture']:'';?>" class="form-control">
+                                    <label for="image">Choose an profile picture</label><span class="text-danger">*</span>
+                                    <input type="file" name="profile_picture" value="<?php echo isset($editData)?$editData['profile_picture']:'';?>" class="form-control" required accept="image/x-png,image/jpeg">
                                     <!-- <span class="help-block">Input the title</span> -->
                                 </div>
                             </div>

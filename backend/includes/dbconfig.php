@@ -8,12 +8,13 @@ define("database","minorproject");
 
 //mysql connection
 $conn = mysqli_connect(hostname,username,password,database);
-// if($conn){
-//     echo "Connected successfully";
+if($conn){
+//    echo "Connected successfully";
+//    var_dump($conn);
     
-// }else {
-//     echo "Failed to connect".mysqli_connect_error();
-// }
+}else {
+    echo "Failed to connect".mysqli_connect_error();
+}
 
 ?>
 

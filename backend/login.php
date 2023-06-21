@@ -9,6 +9,7 @@ if (isset($_SESSION['loginAccess'])) {
 
 //database connection
 include "includes/dbconfig.php";
+global $conn;
 
 //check for login
 if (isset($_POST['login'])) {
@@ -18,7 +19,8 @@ if (isset($_POST['login'])) {
     //check email and password
     $sql = "SELECT * FROM users WHERE email = '$email' AND password = md5('$password') AND status = '1'";
     $query = mysqli_query($conn, $sql);
-    // echo $sql;
+    var_dump( $sql);
+    var_dump($conn);
     $data = mysqli_fetch_assoc($query);
 
     if ($data) {

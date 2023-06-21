@@ -1,5 +1,5 @@
 <?php 
-include "frontend/includes/blog-header.php";
+include "frontend/includes/header.php";
 
 if(isset($_REQUEST['id'])){
     $id = $_REQUEST['id'];

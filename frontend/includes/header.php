@@ -92,7 +92,7 @@ include "dbconfig.php";
               </button>
               <!-- RD Navbar Brand-->
               <div class="rd-navbar-brand">
-                <a class="brand-name" href="index.php">TBP</a>
+                <a class="brand-name" href="index.php">TPB</a>
               </div>
             </div>
             <div class="rd-navbar-aside-center">

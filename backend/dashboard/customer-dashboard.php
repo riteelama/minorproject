@@ -66,7 +66,7 @@ include "includes/other-counter.php";
                             <div class="text-base font-weight-bold text-warning text-uppercase mb-1">
                                 Your Comments</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $commTotal; ?></div>
-                            <a href="posts.php">View your all comments</a>
+                            <a href="comments.php">View your all comments</a>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-comments fa-2x text-gray-600"></i>

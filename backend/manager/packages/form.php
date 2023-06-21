@@ -32,19 +32,19 @@
 
 				<div class="form-group">
 				<label for="excerpt">Excerpt</label>
-    		        <textarea rows="5" class="form-control" name="excerpt"><?php echo isset($editData)?$editData['excerpt']:'';?></textarea>
+    		        <textarea rows="5" class="form-control" name="excerpt" required><?php echo isset($editData)?$editData['excerpt']:'';?></textarea>
     		    </div>
 
 				<div class="form-group">
     		        <label for="price">Price</label>
-    		        <input type="text" class="form-control" name="price" value="<?php echo isset($editData)?$editData['price']:'';?>"/>
+    		        <input type="text" class="form-control" name="price" value="<?php echo isset($editData)?$editData['price']:'';?>" required/>
     		    </div>
 
 				<div class="form-group has-error">
     		        <label for="image">Choose an image</label>
-					<input type="file" name="image" onchange="loadFile(event)">
+					<input type="file" name="image" onchange="loadFile(event)" required>
 					<br>
-					<img id="output" src="../uploads/images/<?php echo $editData['image']; ?>" height="300" width="300">
+					<img id="output" src="../uploads/images/<?php echo $editData['image']; ?>" height="300" width="300" required accept="image/x-png,image/jpeg">
     		        <!-- <span class="help-block">Input the title</span> -->
     		    </div>
 

@@ -73,7 +73,7 @@ include "frontend/includes/header.php";
                                                                      alt="" width="570" height="370"/>
                             </figure>
                             <div class="event-default-caption"><a class="button button-xs button-secondary button-nina"
-                                                                  href="#">learn more</a></div>
+                                                                  href="package-view.php?id=<?php echo $row['id'];?>">learn more</a></div>
                         </div>
                         <div class="event-default-inner">
                             <h5><a class="event-default-title"

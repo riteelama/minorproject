@@ -49,7 +49,7 @@ if(isset($_POST['create'])){
         // svar_dump($query);
         if($query){
             $success = "Category has been successfully created.";
-            header("location:login.php");
+            header("location:packages.php");
         }
         else {
             $error = "Title and description already exists";
@@ -166,15 +166,15 @@ if(isset($_GET['page'])){
 
 
     //find all records
-$packSql = "SELECT * FROM $tablename WHERE user_id_packages = '$agent_id' LIMIT $start,$limit";
-// var_dump($sql);
+$packSql = "SELECT * FROM $tablename WHERE user_id_packages = '$agent_id'";
+// var_dump($packSql);
 }
 
 $packQuery = mysqli_query($conn,$packSql);
 // // print_r(mysqli_fetch_array($query));
 // // print_r(mysqli_fetch_array($query));
 $count = mysqli_num_rows($packQuery);
-var_dump($count);
+// var_dump($count);
 // echo $count;
 
 include "includes/headers/agent-header.php";

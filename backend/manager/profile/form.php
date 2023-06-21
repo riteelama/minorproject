@@ -14,7 +14,7 @@
 
       <div class="col-md-8 col-md-offset-2">
 
-        <h1>Create or Edit Post</h1>
+        <h1>Create or Edit Profile</h1>
 
         <form action="<?php echo $_SERVER['PHP_SELF'];
                       echo isset($_GET['page']) ? '?page=' . $_GET['page'] : ''; ?>" method="POST" id="categoryform" enctype="multipart/form-data">
@@ -58,9 +58,9 @@
           <div class="form-group has-error">
             <label for="profile_picture">Choose an image</label>
             <br>
-            <input type="file" name="profile_picture" onchange="loadFile(event)">
+            <input type="file" name="profile_picture" onchange="loadFile(event)" required>
             <br>
-            <img id="output" src="../uploads/images/<?php echo $editData['profile_picture']; ?>" height="400" width="400">
+            <img id="output" src="../uploads/images/<?php echo $editData['profile_picture']; ?>" height="400" width="400" accept="image/x-png,image/jpeg">
           </div>
 
           <div class="form-group">

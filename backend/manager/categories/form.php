@@ -21,13 +21,13 @@
     		<form action="<?php echo $_SERVER['PHP_SELF']; echo isset($_GET['page'])?'?page='.$_GET['page']:'';?>" method="POST" id="categoryform" enctype="multipart/form-data">
                 <div class="form-group has-error">
     		        <label for="title">Title</label>
-    		        <input type="text" class="form-control" name="title" value = "<?php echo isset($editData)?$editData['title']:'';?>"/>
+    		        <input type="text" class="form-control" name="title" value = "<?php echo isset($editData)?$editData['title']:'';?>" required/>
     		        <!-- <span class="help-block">Input the title</span> -->
     		    </div>
 
     		    <div class="form-group">
     		        <label for="description">Description</label>
-    		        <textarea rows="5" class="form-control" name="description"><?php echo isset($editData)?$editData['description']:'';?></textarea>
+    		        <textarea rows="5" class="form-control" name="description" required><?php echo isset($editData)?$editData['description']:'';?></textarea>
     		    </div>
 
 				<div class="form-group">

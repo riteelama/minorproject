@@ -15,7 +15,7 @@ if (isset($_POST['create'])) {
     $profile_picture = $_FILES['profile_picture'];
     $role_id = $_POST['role_id'];
 
-    var_dump($profile_picture);
+    //var_dump($profile_picture);
 
     if (isset($profile_picture['name']) && !empty($profile_picture['name'])) {
 
@@ -48,6 +48,7 @@ if (isset($_POST['create'])) {
         $error = "Username and email cannot be blank";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,9 +149,9 @@ if (isset($_POST['create'])) {
 
                                 <div class="form-group">
                                     <div class="form-group has-error">
-                                        <label for="profile_picture">Choose an profile image</label>
+                                        <label for="profile_picture">Choose an profile image</label><span class="text-danger">*</span>
                                         <br>
-                                        <input type="file" name="profile_picture" id="profile_picture" value="<?php echo isset($editData) ? $editData['image'] : ''; ?>">
+                                        <input type="file" name="profile_picture" id="profile_picture" value="<?php echo isset($editData) ? $editData['image'] : ''; ?>" required accept="jpeg/png">
                                         <!-- <span class="help-block">Input the title</span> -->
                                     </div>
                                 </div>
