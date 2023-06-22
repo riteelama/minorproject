@@ -31,4 +31,3 @@ if (isset($_REQUEST['id'])) {
 </div>
 <?php
 include "frontend/includes/footer.php";
-?><

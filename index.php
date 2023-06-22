@@ -190,4 +190,3 @@ include "frontend/includes/header.php";
 <!--Including footer file in main page-->
 <?php
 include "frontend/includes/footer.php";
-?>

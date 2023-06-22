@@ -12,5 +12,3 @@ if(isset($_COOKIE['myCookie'])){
 if(!isset($_SESSION['loginAccess'])){
     header("location: login.php"); // content type definer -> dedine the location of request
 }
-
-?>

@@ -59,4 +59,3 @@ $tour_exec = mysqli_query($conn, $tour_query);
 
 include "frontend/includes/footer.php";
 
-?>

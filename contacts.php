@@ -62,4 +62,3 @@ include "frontend/includes/header.php";
 <!-- Page Footer-->
 <?php
 include "frontend/includes/footer.php";
-?>      

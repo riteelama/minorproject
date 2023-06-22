@@ -21,6 +21,3 @@ for ($i=1; $i<=$totalPage; $i++) {
 }
 echo $pagLink . "</ul>";  
 // for($i = 1; $i<=$totalPage; $i++){
-?>
-
-

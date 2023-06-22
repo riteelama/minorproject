@@ -33,4 +33,3 @@ $commSql = "SELECT COUNT(*) FROM comments WHERE user_comid='$user_id'";
 $commQuery = mysqli_query($conn, $commSql); 
 $commRows = mysqli_fetch_array($commQuery);
 $commTotal = $commRows[0];
-?>

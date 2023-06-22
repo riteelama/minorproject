@@ -12,6 +12,7 @@ if($conn){
 //    echo "Connected successfully";
 //    var_dump($conn);
     
+<<<<<<< HEAD
 }else {
     echo "Failed to connect".mysqli_connect_error();
 }
@@ -20,3 +21,8 @@ if($conn){
 
 
 
+=======
+// }else {
+//     echo "Failed to connect".mysqli_connect_error();
+// }
+>>>>>>> 665fd2803987df6024bebf9b66746fda9877129d
