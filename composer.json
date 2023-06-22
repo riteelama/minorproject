@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mpdf/mpdf": "^6.1",
+        "dompdf/dompdf": "^2.0"
+    }
+}

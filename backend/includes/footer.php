@@ -57,6 +57,13 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+        $('#packageTable').DataTable();
+});
+    </script>
 
 </body>
 

@@ -28,7 +28,7 @@ if(isset($_POST['book'])){
         //process to data entry
         
         $sql = "INSERT INTO $tablename(package_id,package_name,user_custid,user_name) VALUES ('$package_id','$package_name','$user_custid','$user_name')";
-        var_dump($sql);
+        // var_dump($sql);
 
         $query = mysqli_query($conn,$sql);
         // svar_dump($query);
@@ -60,6 +60,17 @@ if(isset($_GET['delete'])){
     else {
         $msg = "Package can't be deleted. Mysql says: ".mysqli_error($conn);
     }
+}
+
+// to view booking details
+
+if(isset($_GET['view'])){
+    $id = $_GET['view'];
+    $sql = "SELECT * FROM $tablename WHERE id = '$id'";
+    // var_dump($sql); 
+    $query = mysqli_query($conn,$sql);
+    $packageView = mysqli_fetch_assoc($query);
+    $count = mysqli_num_rows($query);
 }
 
 
@@ -155,6 +166,7 @@ $bookSql = "SELECT * FROM $tablename WHERE user_custid = '$user_custid'";
 $bookQuery = mysqli_query($conn,$bookSql);
 // var_dump($query);
 $count = mysqli_num_rows($bookQuery);
+$bookRow = mysqli_fetch_assoc($bookQuery);
 }
 
 
@@ -165,7 +177,13 @@ include "includes/headers/customer-header.php";
 //form, search and datalist by login
 if(isset($_GET['book'])){
     include "manager/$type/form.php";
-}else {
+} else if(isset($_GET['view'])){
+    include "manager/$type/view.php";
+}
+else if(isset($_GET['print'])){
+    include "manager/$type/print.php";
+}
+else {
     include "manager/$type/search.php";
     include "manager/$type/datalist.php";
 }

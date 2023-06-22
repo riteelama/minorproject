@@ -18,6 +18,9 @@ $username = $row['username'];
     <meta name="author" content="">
 
     <title>Customer Dashboard</title>
+    <link href="css/datatables.min.css"/>
+
+    <!-- For datatables -->
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
