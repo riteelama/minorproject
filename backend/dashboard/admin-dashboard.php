@@ -1,5 +1,6 @@
 <?php
-// include "includes/session.php";
+global $username;
+//include "includes/session.php";
 $type = "index";
 include "includes/headers/admin-header.php";
 
@@ -30,7 +31,7 @@ include "includes/counter.php";
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo absint( $total ); ?></div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo ( $total ); ?></div>
                                     <a href="admin-booking.php">View all bookings</a>
                                 </div>
                             </div>

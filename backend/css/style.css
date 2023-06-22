@@ -101,3 +101,8 @@ form .button button {
 form .button button:hover {
     background: #3498db;
 }
+
+.login-btn:hover {
+    background: #ffa900 !important;
+    border: #ffa900 !important;
+}

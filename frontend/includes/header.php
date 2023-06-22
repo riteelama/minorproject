@@ -1,4 +1,5 @@
 <?php
+global $currentPage;
 include "dbconfig.php";
 ?>
 <!DOCTYPE html>
@@ -13,11 +14,11 @@ include "dbconfig.php";
   <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald:200,400%7CLato:300,400,300italic,700%7CMontserrat:900">
   <link rel="stylesheet" href="frontend/includes/css/bootstrap.css">
-  <link rel="stylesheet" href="frontend/includes/css/style.css">
   <link rel="stylesheet" href="frontend/includes/css/fonts.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="frontend/includes/css/style.css">
   <!--[if lt IE 10]>
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"> </script>
@@ -122,7 +123,8 @@ include "dbconfig.php";
                 </ul>
               </div>
             </div>
-            <div class="rd-navbar-aside-right"><a class="button button-sm button-secondary button-nina" href="backend/booking.php">Book a tour now</a></div>
+            <div class="rd-navbar-aside-right"><a class="button button-sm button-secondary" href="backend/booking.php">Book a tour now</a></div>
+            <div class="rd-navbar-aside-left"><a class="button button-sm button-info button-info" href="backend/login.php">Login</a></div>
           </div>
         </nav>
       </div>
