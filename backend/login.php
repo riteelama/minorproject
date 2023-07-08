@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
     //check email and password
     $sql = "SELECT * FROM users WHERE email = '$email' AND password = md5('$password') AND status = '1'";
     $query = mysqli_query($conn, $sql);
-     var_dump( $sql);
+//     var_dump( $sql);
     // var_dump($conn);
     $data = mysqli_fetch_assoc($query);
 
@@ -57,7 +57,7 @@ if (isset($_POST['login'])) {
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/fontawesome.min.css" type="text/css">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -108,6 +108,7 @@ if (isset($_POST['login'])) {
                                     <div>
                                         Don't have an account? <a class="small" href="register.php">Create an Account!</a>
                                     </div>
+                                    <a href="../index.php" class="mt-3"> &larr; Go back to homepage</a>
                                 </div>
                             </div>
                         </div>

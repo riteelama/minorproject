@@ -10,8 +10,8 @@ include "includes/other-counter.php";
 <div class="container-fluid">
 
     <!-- Page Heading -->
+    <a href="../index.php" class="mt-3"> &larr; Go back to homepage</a>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-
         <h1 class="h3 mb-0 text-gray-800">Welcome <?php echo ucfirst($userRows['username']); ?>, This is your admin dashboard.</h1>
     </div>
 
@@ -27,7 +27,7 @@ include "includes/other-counter.php";
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                <p class="text-secondary font-weight-bold">Total Packages: <span class="text-dark"><?php echo absint( $packsTotal );?></span></p>
+                <p class="text-secondary font-weight-bold">Total Packages: <span class="text-dark"><?php echo  $packsTotal;?></span></p>
                     <a href="packages.php">View All Packages</a>
                 </div>
             </div>

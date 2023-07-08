@@ -3,18 +3,21 @@
 <?php
 $currentPage = 'home';
 include "frontend/includes/header.php";
+global $conn;
 ?>
 <section class="section">
     <div class="swiper-form-wrap">
         <!-- Swiper-->
-        <div class="swiper-container swiper-slider swiper-slider_height-1 swiper-align-left swiper-align-left-custom context-dark bg-gray-darker" data-loop="false" data-autoplay="5500" data-simulate-touch="false" data-slide-effect="fade">
+        <div
+            class="swiper-container swiper-slider swiper-slider_height-1 swiper-align-left swiper-align-left-custom context-dark bg-gray-darker"
+            data-loop="false" data-autoplay="5500" data-simulate-touch="false" data-slide-effect="fade">
             <div class="swiper-wrapper">
                 <?php
                 $sql = "SELECT * FROM posts WHERE status='1' ORDER BY id ASC LIMIT 3";
                 $query = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($query)) :
 
-                ?>
+                    ?>
                     <div class="swiper-slide" data-slide-bg="uploads/images/<?php echo $row['image']; ?>">
                         <div class="swiper-slide-caption">
                             <div class="container container-bigger swiper-main-section">
@@ -25,24 +28,101 @@ include "frontend/includes/header.php";
                                         <p class="text-spacing-sm">We offer a variety of destinations to travel to,
                                             ranging from exotic to some extreme ones. They include very popular
                                             countries and cities like Paris, Rio de Janeiro, Cairo and a lot of
-                                            others.</p><a class="button button-default-outline button-nina button-sm" href="single.php?id=<?php echo $row['id']; ?>">learn more</a>
+                                            others.</p><a class="button button-default-outline button-nina button-sm"
+                                                          href="single.php?id=<?php echo $row['id']; ?>">learn more</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <?php endwhile ?>
 
-                <!-- Swiper controls-->
-                <div class="swiper-pagination-wrap">
-                    <div class="container container-bigger">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="swiper-pagination"></div>
+                    <!-- Swiper controls-->
+                    <div class="swiper-pagination-wrap">
+                        <div class="container container-bigger">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endwhile ?>
+                <div class="container container-bigger form-request-wrap form-request-wrap-modern">
+                    <div class="row row-fix justify-content-sm-center justify-content-lg-end">
+                        <div class="col-lg-6 col-xxl-5">
+                            <div class="form-request form-request-modern bg-gray-lighter novi-background">
+                                <h4 class="text-center text-custom-black">Find your Tour</h4>
+                                <!-- RD Mailform-->
+                                <form class="rd-mailform form-fix">
+                                    <div class="row row-20 row-fix">
+                                        <div class="col-sm-12">
+                                            <label class="form-label-outside">Loacation</label>
+                                            <!--                                            <div class="form-wrap form-wrap-inline">-->
+                                            <!--                                                <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">-->
+                                            <!--                                                    <option value="1">Illam</option>-->
+                                            <!--                                                    <option value="2">Jhapa</option>-->
+                                            <!--                                                    <option value="3">Biratnagar</option>-->
+                                            <!--                                                </select>-->
+                                            <!--                                            </div>-->
+                                            <div class="form-wrap form-wrap-inline">
+                                                <select class="form-input select-filter" data-placeholder="All"
+                                                        data-minimum-results-for-search="Infinity" name="city">
+                                                    <option value="1">Pokhara</option>
+                                                    <option value="2">Mustang</option>
+                                                    <option value="3">Jomsom</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-6">
+                                            <label class="form-label-outside">Depart Date</label>
+                                            <div class="form-wrap form-wrap-validation">
+                                                <!-- Select -->
+                                                <input class="form-input" id="dateForm" name="date" type="text"
+                                                       data-time-picker="date">
+                                                <label class="form-label" for="dateForm">Choose the date</label>
+                                                <!--select.form-input.select-filter(data-placeholder="All", data-minimum-results-for-search="Infinity",  name='city')-->
+                                                <!--  option(value="1") Choose the date-->
+                                                <!--  option(value="2") Primary-->
+                                                <!--  option(value="3") Middle-->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-6">
+                                            <label class="form-label-outside">Duration</label>
+                                            <div class="form-wrap form-wrap-validation">
+                                                <!-- Select 2-->
+                                                <select class="form-input select-filter" data-placeholder="All"
+                                                        data-minimum-results-for-search="Infinity" name="city">
+                                                    <option value="1">Any length</option>
+                                                    <option value="2">2 days</option>
+                                                    <option value="3">3 days</option>
+                                                    <option value="4">4 days</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!--                                        <div class="col-lg-6">-->
+                                        <!--                                            <label class="form-label-outside">Adults</label>-->
+                                        <!--                                            <div class="form-wrap form-wrap-modern">-->
+                                        <!--                                                <input class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="2">-->
+                                        <!--                                            </div>-->
+                                        <!--                                        </div>-->
+                                        <!--                                        <div class="col-lg-6">-->
+                                        <!--                                            <label class="form-label-outside">Children</label>-->
+                                        <!--                                            <div class="form-wrap form-wrap-modern">-->
+                                        <!--                                                <input class="form-input input-append" id="form-element-stepper-1" type="number" min="0" max="300" value="0">-->
+                                        <!--                                            </div>-->
+                                        <!--                                        </div>-->
+                                        <!--                                    </div>-->
+                                        <div class="form-wrap form-button m-auto">
+                                            <button class="button button-block button-secondary" type="submit">search
+                                                tour package
+                                            </button>
+                                        </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 </section>
@@ -67,16 +147,20 @@ include "frontend/includes/header.php";
             $sql = "SELECT * FROM packages where status = '1' ORDER BY id ASC LIMIT 6";
             $query = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($query)) :
-            ?>
+                ?>
                 <div class="col-md-6 col-xl-4">
                     <article class="event-default-wrap">
                         <div class="event-default">
-                            <figure class="event-default-image"><img src="uploads/images/<?php echo $row['image']; ?>" alt="" width="570" height="370" />
+                            <figure class="event-default-image"><img src="uploads/images/<?php echo $row['image']; ?>"
+                                                                     alt="" width="570" height="370"/>
                             </figure>
-                            <div class="event-default-caption"><a class="button button-xs button-secondary button-nina" href="package-view.php?id=<?php echo $row['id']; ?>">learn more</a></div>
+                            <div class="event-default-caption"><a class="button button-xs button-secondary button-nina"
+                                                                  href="package-view.php?id=<?php echo $row['id']; ?>">learn
+                                    more</a></div>
                         </div>
                         <div class="event-default-inner">
-                            <h5><a class="event-default-title" href="package-view.php?id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a>
+                            <h5><a class="event-default-title"
+                                   href="package-view.php?id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a>
                             </h5><span class="heading-5"><?php echo $row['price']; ?></span>
                         </div>
                     </article>
@@ -96,16 +180,21 @@ include "frontend/includes/header.php";
             <div class="divider divider-decorate"></div>
             <!-- Owl Carousel-->
             <!--BLOG SECTION-->
-            <div class="owl-carousel owl-carousel-team owl-carousel-inset" data-items="1" data-md-items="2" data-xl-items="3" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false" data-dots="true" data-autoplay="true">
+            <div class="owl-carousel owl-carousel-team owl-carousel-inset" data-items="1" data-md-items="2"
+                 data-xl-items="3" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false"
+                 data-dots="true" data-autoplay="true">
                 <?php
                 $sql = "SELECT * FROM posts where status = '1' ORDER BY id ASC LIMIT 4";
                 $query = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($query)) :
-                ?>
-                    <article class="post-blog"><a class="post-blog-image" href="single.php?id=<?php echo $row['id']; ?>"><img src="uploads/images/<?php echo $row['image']; ?>" alt="" width="570" height="415" /></a>
+                    ?>
+                    <article class="post-blog"><a class="post-blog-image"
+                                                  href="single.php?id=<?php echo $row['id']; ?>"><img
+                                src="uploads/images/<?php echo $row['image']; ?>" alt="" width="570" height="415"/></a>
                         <div class="post-blog-caption">
                             <div class="post-blog-caption-body">
-                                <h5><a class="post-blog-title" href="single.php?id=<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a>
+                                <h5><a class="post-blog-title"
+                                       href="single.php?id=<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a>
                                 </h5>
                             </div>
                             <div class="post-blog-caption-footer">
@@ -117,7 +206,8 @@ include "frontend/includes/header.php";
                 <!--END BLOG SECTION-->
             </div>
         </div>
-        <div class="col-12"><a class="button button-secondary button-nina button-offset-lg" href="blog.php">view all blog posts</a></div>
+        <div class="col-12"><a class="button button-secondary button-nina button-offset-lg" href="blog.php">view all
+                blog posts</a></div>
     </div>
     </div>
 </section>
@@ -128,12 +218,13 @@ include "frontend/includes/header.php";
         <h3>View our testimonials</h3>
         <div class="divider divider-decorate"></div>
         <!-- Owl Carousel-->
-        <div class="owl-carousel owl-layout-1" data-items="1" data-dots="true" data-nav="true" data-stage-padding="0" data-loop="true" data-margin="30" data-mouse-drag="false" data-autoplay="true">
+        <div class="owl-carousel owl-layout-1" data-items="1" data-dots="true" data-nav="true" data-stage-padding="0"
+             data-loop="true" data-margin="30" data-mouse-drag="false" data-autoplay="true">
             <?php
             $sql = "SELECT * FROM comments";
             $query = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($query)) :
-            ?>
+                ?>
                 <article class="quote-boxed">
                     <?php
                     $id = $row['user_comid'];
@@ -143,7 +234,9 @@ include "frontend/includes/header.php";
                     $subquery = mysqli_query($conn, $subsql);
                     $subrow = mysqli_fetch_assoc($subquery);
                     ?>
-                    <div class="quote-boxed-aside"><img class="quote-boxed-image" src="uploads/images/<?php echo $subrow['profile_picture']; ?>" alt="" width="210" height="210" />
+                    <div class="quote-boxed-aside"><img class="quote-boxed-image"
+                                                        src="uploads/images/<?php echo $subrow['profile_picture']; ?>"
+                                                        alt="" width="210" height="210"/>
                     </div>
                     <div class="quote-boxed-main">
                         <div class="quote-boxed-text">
@@ -151,13 +244,13 @@ include "frontend/includes/header.php";
                         </div>
                         <div class="quote-boxed-meta">
                             <p class="quote-boxed-cite"><?php
-                                                        // $id = $row['user_comid'];
-                                                        // // var_dump($id);
-                                                        // $subsql = "SELECT * FROM users WHERE id = '$id'";
-                                                        // // var_dump($subsql);
-                                                        // $subquery = mysqli_query($conn,$subsql);
-                                                        // $subrow = mysqli_fetch_assoc($subquery);
-                                                        ?>
+                                // $id = $row['user_comid'];
+                                // // var_dump($id);
+                                // $subsql = "SELECT * FROM users WHERE id = '$id'";
+                                // // var_dump($subsql);
+                                // $subquery = mysqli_query($conn,$subsql);
+                                // $subrow = mysqli_fetch_assoc($subquery);
+                                ?>
                             <p class="quote-boxed-cite"><?php echo $subrow['fullname']; ?></p>
                         </div>
                     </div>
@@ -178,7 +271,8 @@ include "frontend/includes/header.php";
                         <h3 class="box-cta-title">Buy a tour without leaving your home</h3>
                         <p>Using our website, you can book any tour just in a couple of clicks.</p>
                     </div>
-                    <div class="box-cta-inner"><a class="button button-secondary button-nina" href="backend/booking.php">Book Now</a></div>
+                    <div class="box-cta-inner"><a class="button button-secondary button-nina"
+                                                  href="backend/booking.php">Book Now</a></div>
                 </div>
             </div>
         </div>

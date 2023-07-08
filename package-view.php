@@ -1,4 +1,5 @@
-<?php 
+<?php
+global $conn;
 include "frontend/includes/header.php";
 
 if(isset($_REQUEST['id'])){
@@ -13,7 +14,7 @@ if(isset($_REQUEST['id'])){
     <?php foreach($query as $q){?>
 
         <img class="card-img-top" src="uploads/images/<?php echo $q['image'];?>" alt="Card image cap">
-        <div class="card-title bg-dark text-white">
+        <div class="card-title">
             <h1><?php echo $q['name']?></h1>
         </div>
         
@@ -28,6 +29,8 @@ if(isset($_REQUEST['id'])){
 
 
         <?php } ?>
+        <!-- <a href="packageBooking.php?id=<?php 
+        // echo $id?>" class="btn btn-primary">Book This</a> -->
         <a href="backend/booking.php" class="btn btn-primary">Book This</a>
     </div>    
 </div>

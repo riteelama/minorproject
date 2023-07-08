@@ -1,6 +1,7 @@
 <?php
 global $currentPage;
 include "dbconfig.php";
+include "session.php";
 ?>
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
@@ -123,8 +124,13 @@ include "dbconfig.php";
                 </ul>
               </div>
             </div>
-            <div class="rd-navbar-aside-right"><a class="button button-sm button-secondary" href="backend/booking.php">Book a tour now</a></div>
-            <div class="rd-navbar-aside-left"><a class="button button-sm button-info button-info" href="backend/login.php">Login</a></div>
+            <div class="rd-navbar-aside-left"><a class="button button-sm button-primary" href="backend/booking.php">Book a tour now</a></div>
+            <?php if(isset($_SESSION['loginAccess'])){?>
+              <div class="rd-navbar-aside-center"><a class="button button-sm button-success" href="backend/login.php">Go to dashboard</a></div>
+            <?php } ?>
+            <?php if(!isset($_SESSION['loginAccess'])){?>
+            <div class="rd-navbar-aside-right"><a class="button button-sm button-success" href="backend/login.php">Login</a></div>
+            <?php } ?>
           </div>
         </nav>
       </div>

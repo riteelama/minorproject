@@ -13,6 +13,7 @@ include "includes/counter.php";
 <div class="container-fluid">
 
     <!-- Page Heading -->
+    <a href="../index.php" class="mt-3"> &larr; Go back to homepage</a>
     <div class="d-sm-flex align-items-center justify-content-center mb-4">
         <h1 class="h1 mb-0 text-gray-800 text-center">Hello <?php echo ucfirst($username) ?>, Welcome to your admin dashboard</h1>
     </div>

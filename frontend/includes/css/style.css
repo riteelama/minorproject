@@ -103,6 +103,47 @@
 *     6.2 FL Bigmug Line
 **/
 
+/**
+Custom CSS Code
+*/
+.bg-dark {
+    background: #343a40;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+.rd-navbar-static .rd-navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly !important;
+}
+
+a.button.button-sm.button-primary:hover {
+    background: #ffad0b;
+    border-color: #ffad0b;
+}
+
+a.button.button-sm.button-success {
+    background: #28a745;
+    border-color: #28a745;
+    color: #ffffff;
+}
+
+a.button.button-sm.button-success:hover {
+    background: #ffb013;
+    border-color: #ffb013;
+}
+
+.text-custom-black {
+    color:#151515 !important;
+}
+
 .bg-gradient.bg-secondary-2 {
     background-image: -moz-linear-gradient(-39deg, #6d0eb1 59%, #080ab4 100%);
     /* FF3.6-15 */
@@ -10787,6 +10828,16 @@ html:not(.lt-ie10) .not-animated {
     color: #2c20c0;
 }
 
+/*.login-btn:hover {*/
+/*    background: #ffa900 !important;*/
+/*    border: #ffa900 !important;*/
+/*}*/
+
+/*.package__booking__card {*/
+/*    margin: 90px 50px;*/
+/*}*/
+
+
 .dtp .p20 {
     width: 20%;
 }
@@ -19162,6 +19213,7 @@ html[dir='rtl'] .lg-css3.lg-slide.lg-use-css3 .lg-item.lg-current {
     pointer-events: none;
     opacity: .5;
 }
+
 
 
 /*
