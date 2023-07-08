@@ -28,8 +28,7 @@ global $conn;
                                         <p class="text-spacing-sm">We offer a variety of destinations to travel to,
                                             ranging from exotic to some extreme ones. They include very popular
                                             countries and cities like Paris, Rio de Janeiro, Cairo and a lot of
-                                            others.</p><a class="button button-default-outline button-nina button-sm"
-                                                          href="single.php?id=<?php echo $row['id']; ?>">learn more</a>
+                                            others.</p><a class="button button-default-outline button-nina button-sm" href="single.php?id=<?php echo $row['id']; ?>">learn more</a>
                                     </div>
                                 </div>
                             </div>
@@ -113,9 +112,7 @@ global $conn;
                                         <!--                                        </div>-->
                                         <!--                                    </div>-->
                                         <div class="form-wrap form-button m-auto">
-                                            <button class="button button-block button-secondary" type="submit">search
-                                                tour package
-                                            </button>
+                                            <button class="button button-block button-secondary" type="submit">search tour package</button>
                                         </div>
                                 </form>
                             </div>
@@ -155,8 +152,7 @@ global $conn;
                                                                      alt="" width="570" height="370"/>
                             </figure>
                             <div class="event-default-caption"><a class="button button-xs button-secondary button-nina"
-                                                                  href="package-view.php?id=<?php echo $row['id']; ?>">learn
-                                    more</a></div>
+                                                                  href="package-view.php?id=<?php echo $row['id']; ?>">learn more</a></div>
                         </div>
                         <div class="event-default-inner">
                             <h5><a class="event-default-title"
@@ -206,8 +202,7 @@ global $conn;
                 <!--END BLOG SECTION-->
             </div>
         </div>
-        <div class="col-12"><a class="button button-secondary button-nina button-offset-lg" href="blog.php">view all
-                blog posts</a></div>
+        <div class="col-12"><a class="button button-secondary button-nina button-offset-lg" href="blog.php">view all blog posts</a></div>
     </div>
     </div>
 </section>
@@ -284,3 +279,4 @@ global $conn;
 <!--Including footer file in main page-->
 <?php
 include "frontend/includes/footer.php";
+?>

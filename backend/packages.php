@@ -23,6 +23,9 @@ if(isset($_POST['create'])){
     $description = $_POST['description'];
     $excerpt = $_POST['excerpt'];
     $price = $_POST['price'];
+    $costincludes = $_POST['costincludes'];
+    $costexcludes = $_POST['costexcludes'];
+    $itinerary = $_POST['itinerary'];
     $image = $_FILES['image'];
     // print_r($image['name']);
     // die();
@@ -42,8 +45,8 @@ if(isset($_POST['create'])){
     if(!empty($name) && !empty($description)){
         //process to data entry
         
-        $sql = "INSERT INTO $tablename(name,description,excerpt,price,image,user_id_packages,status) VALUES ('$name','$description','$excerpt','$price','$image','$agent_id','$status')";
-        // var_dump($sql);
+        $sql = "INSERT INTO $tablename(name,description,itinerary,excerpt,price,costincludes,costexcludes,image,user_id_packages,status) VALUES ('$name','$description','$itinerary','$excerpt','$price','$costincludes','$costexcludes','$image','$agent_id','$status')";
+         var_dump($sql);
 
         $query = mysqli_query($conn,$sql);
         // svar_dump($query);
@@ -95,8 +98,11 @@ if(isset($_GET['edit'])){
 if(isset($_POST['save'])){
     $name = $_POST['name'];
     $description = $_POST['description'];
+    $itinerary = $_POST['itinerary'];
     $excerpt = $_POST['excerpt'];
     $price = $_POST['price'];
+    $costincludes = $_POST['costincludes'];
+    $costexcludes = $_POST['costexcludes'];
     $status = $_POST['status'];
     // $confirmpassword = $_POST['confirmpassword'];
     $id = $_POST['id'];  
@@ -113,8 +119,8 @@ if(isset($_POST['save'])){
     }
 
     //process to data entry        
-    $sql = "UPDATE $tablename SET name = '$name', description ='$description', excerpt='$excerpt', price='$price', image = '$image', status = '$status' WHERE id = '$id'";
-    // echo $sql;
+    $sql = "UPDATE $tablename SET name = '$name', description ='$description', itinerary = '$itinerary', excerpt='$excerpt', price='$price',costincludes='$costincludes', costexcludes='$costexcludes', image = '$image', status = '$status' WHERE id = '$id'";
+     var_dump($sql);
     $query = mysqli_query($conn,$sql);
     // $query.mysqli_error($conn);
     if($query){
@@ -126,9 +132,6 @@ if(isset($_POST['save'])){
     
     }
 }
-
-
-
 
 
 //to change the status of the record

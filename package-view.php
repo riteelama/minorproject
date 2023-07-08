@@ -2,38 +2,53 @@
 global $conn;
 include "frontend/includes/header.php";
 
-if(isset($_REQUEST['id'])){
+if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
 
     $sql = "SELECT * FROM packages WHERE status= '1' AND id = '$id'";
-    $query = mysqli_query($conn,$sql);
+//    var_dump($sql);
+    $query = mysqli_query($conn, $sql);
 }
 ?>
-<div class="container card" style = "margin: 150px;">
+    <div class="container card" style="margin: 150px;">
     <div class="card-body">
-    <?php foreach($query as $q){?>
+        <?php foreach ($query as $q) { ?>
 
-        <img class="card-img-top" src="uploads/images/<?php echo $q['image'];?>" alt="Card image cap">
-        <div class="card-title">
-            <h1><?php echo $q['name']?></h1>
-        </div>
-        
-        <div class="card-subtitle p-2 bg-info"><h6 class="text-bold">Postdate: </h6> <?php echo $q['postdate'];?></div>
-        <div class="card-subtitle p-2 bg-info"><h6 class="text-bold">Price: </h6><?php echo $q['price'];?></div>
+            <img class="card-img-top" src="uploads/images/<?php echo $q['image']; ?>" alt="Card image cap">
+            <div class="card-title">
+                <h1><?php echo $q['name'] ?></h1>
+            </div>
 
-        
+            <div class="card-subtitle p-2 bg-info"><h6 class="text-bold">Postdate: </h6> <?php echo $q['postdate']; ?>
+            </div>
+            <div class="card-subtitle p-2 bg-info"><h6 class="text-bold">Price: </h6><?php echo $q['price'];
+                ?></div>
 
-        <p class="card-text">
-            <?php echo $q['description'];?>
-        </p>
+            <p class="card-text">
+                <?php echo $q['description']; ?>
+            </p>
 
+            <div>
+                <?php echo $q['itinerary']; ?>
+            </div>
+
+            <div>
+                <?php echo $q['costincludes']; ?>
+            </div>
+
+            <div>
+                <?php echo $q['costexcludes']; ?>
+            </div>
 
         <?php } ?>
-        <!-- <a href="packageBooking.php?id=<?php 
+        <!-- <a href="packageBooking.php?id=<?php
         // echo $id?>" class="btn btn-primary">Book This</a> -->
-        <a href="backend/booking.php" class="btn btn-primary">Book This</a>
-    </div>    
-</div>
+        <!--        <a href="bookPackage.php" class="button button-success" >Book this now</a>-->
+        <!-- Modal -->
+        <div class="py-5">
+            <a href="bookPackage.php?book=<?php echo $id; ?>" class="btn btn-primary">Book this</a>
+        </div>
+    </div>
 <?php
 include "frontend/includes/footer.php";
-?><
+?>

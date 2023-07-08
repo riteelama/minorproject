@@ -110,20 +110,6 @@ Custom CSS Code
     background: #343a40;
 }
 
-.dropdown:hover>.dropdown-menu {
-    display: block;
-}
-
-.dropdown>.dropdown-toggle:active {
-    /*Without this, clicking will make it sticky*/
-    pointer-events: none;
-}
-.rd-navbar-static .rd-navbar-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly !important;
-}
-
 a.button.button-sm.button-primary:hover {
     background: #ffad0b;
     border-color: #ffad0b;
@@ -142,6 +128,29 @@ a.button.button-sm.button-success:hover {
 
 .text-custom-black {
     color:#151515 !important;
+}
+
+.bookingForm {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.after-book-info {
+    margin-top: 2rem;
+}
+
+.bookFormSubmit {
+    width: 25%;
+    text-align: center;
+    margin-bottom: 3rem;
+    margin: auto;
+    margin-bottom: 2rem;
+    background: #28a745;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    justify-content: center;
 }
 
 .bg-gradient.bg-secondary-2 {

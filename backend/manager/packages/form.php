@@ -18,7 +18,7 @@
 	        
     		<h1>Create or Edit Package</h1>
     		
-    		<form action="<?php echo $_SERVER['PHP_SELF']; echo isset($_GET['page'])?'?page='.$_GET['page']:'';?>" method="POST" id="categoryform" enctype="multipart/form-data">
+    		<form action="<?php echo $_SERVER['PHP_SELF']; echo isset($_GET['page'])?'?page='.$_GET['page']:'';?>" method="POST" id="packageform" enctype="multipart/form-data">
                 <div class="form-group has-error">
     		        <label for="name">Package Name</label>
     		        <input type="text" class="form-control" name="name" value = "<?php echo isset($editData)?$editData['name']:'';?>"/>
@@ -31,6 +31,12 @@
     		    </div>
 
 				<div class="form-group">
+					<label for="itinerary">Itinerary</label>
+					<textarea rows="5" class="form-control" name="itinerary" id="itinerary"><?php echo isset($editData)?$editData['itinerary']:'';?></textarea>
+				</div>
+
+
+				<div class="form-group">
 				<label for="excerpt">Excerpt</label>
     		        <textarea rows="5" class="form-control" name="excerpt" required><?php echo isset($editData)?$editData['excerpt']:'';?></textarea>
     		    </div>
@@ -39,6 +45,17 @@
     		        <label for="price">Price</label>
     		        <input type="text" class="form-control" name="price" value="<?php echo isset($editData)?$editData['price']:'';?>" required/>
     		    </div>
+
+				<div class="form-group">
+					<label for="costincludes">Cost Includes</label>
+					<textarea rows="5" class="form-control" name="costincludes" id="costincludes"><?php echo isset($editData)?$editData['costincludes']:'';?></textarea>
+				</div>
+
+				<div class="form-group">
+					<label for="costexcludes">Cost Excludes</label>
+					<textarea rows="5" class="form-control" name="costexcludes" id="costexcludes"><?php echo isset($editData)?$editData['costexcludes']:'';?></textarea>
+				</div>
+
 
 				<div class="form-group has-error">
     		        <label for="image">Choose an image</label>
