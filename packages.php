@@ -1,11 +1,13 @@
 <?php
+$currentPage = 'packages';
 include "frontend/includes/header.php";
+
 ?>
 <!-- Page content-->
 <div class="container">
     <div class="row">
         <!-- Packages entries-->
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-8 offset-md-2 mt-4">
             <!-- Featured packages post-->
             <div class="card mb-4">
                 <?php 

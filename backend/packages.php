@@ -27,6 +27,9 @@ if(isset($_POST['create'])){
     $costexcludes = $_POST['costexcludes'];
     $itinerary = $_POST['itinerary'];
     $image = $_FILES['image'];
+    $location = $_POST['location'];
+    $lat = $_POST['lat'];
+    $lng = $_POST['lng'];
     // print_r($image['name']);
     // die();
     $status = $_POST['status'];
@@ -45,8 +48,8 @@ if(isset($_POST['create'])){
     if(!empty($name) && !empty($description)){
         //process to data entry
         
-        $sql = "INSERT INTO $tablename(name,description,itinerary,excerpt,price,costincludes,costexcludes,image,user_id_packages,status) VALUES ('$name','$description','$itinerary','$excerpt','$price','$costincludes','$costexcludes','$image','$agent_id','$status')";
-         var_dump($sql);
+        $sql = "INSERT INTO $tablename(name,description,itinerary,location,lat,lng,excerpt,price,costincludes,costexcludes,image,user_id_packages,status) VALUES ('$name','$description','$itinerary','$location','$lat','$lng','$excerpt','$price','$costincludes','$costexcludes','$image','$agent_id','$status')";
+      
 
         $query = mysqli_query($conn,$sql);
         // svar_dump($query);
@@ -61,8 +64,10 @@ if(isset($_POST['create'])){
     }else {
         $error = "Title and description cannot be blank";
     }
+    var_dump($sql);
 }
 // var_dump($id);
+
 
 
 
@@ -88,6 +93,7 @@ if(isset($_GET['edit'])){
     $sql = "SELECT * FROM $tablename WHERE id = '$id'";
     $query = mysqli_query($conn,$sql);
     $editData  = mysqli_fetch_array($query);
+    // var_dump($editData);
     // echo $editData["confirm-password"];
     // die();
     // print_r($editData);
@@ -104,6 +110,9 @@ if(isset($_POST['save'])){
     $costincludes = $_POST['costincludes'];
     $costexcludes = $_POST['costexcludes'];
     $status = $_POST['status'];
+    $lat = $_POST['lat'];
+    $lng = $_POST['lng'];
+    $location = $_POST['location'];
     // $confirmpassword = $_POST['confirmpassword'];
     $id = $_POST['id'];  
     $image = $_FILES['image'];
@@ -119,8 +128,8 @@ if(isset($_POST['save'])){
     }
 
     //process to data entry        
-    $sql = "UPDATE $tablename SET name = '$name', description ='$description', itinerary = '$itinerary', excerpt='$excerpt', price='$price',costincludes='$costincludes', costexcludes='$costexcludes', image = '$image', status = '$status' WHERE id = '$id'";
-     var_dump($sql);
+    $sql = "UPDATE $tablename SET name = '$name', description ='$description', itinerary = '$itinerary', location = '$location', lat = '$lat', lng = '$lng', excerpt='$excerpt', price='$price',costincludes='$costincludes', costexcludes='$costexcludes', image = '$image', status = '$status' WHERE id = '$id'";
+    //  var_dump($sql);
     $query = mysqli_query($conn,$sql);
     // $query.mysqli_error($conn);
     if($query){

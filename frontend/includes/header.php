@@ -104,6 +104,10 @@ include "session.php";
                   <li class="<?php if ($currentPage == 'home') {
                                 echo 'active';
                               } ?>"><a href="index.php">Home</a></li>
+
+                  <li class="<?php if ($currentPage == 'packages') {
+                                echo 'active';
+                              } ?>"><a href="packages.php">Packages</a></li>
                   <!-- <li class="active"><a href="index.php">Home</a>
                     </li> -->
                   <li class="<?php if ($currentPage == 'about') {

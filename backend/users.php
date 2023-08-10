@@ -97,9 +97,6 @@ if(isset($_POST['save'])){
     $status = $_POST['status'];
     $role_id = $_POST['role_id'];
     $profile_picture = $_FILES['profile_picture'];
-    // var_dump($profile_picture);
-    // $id = $_POST['edit'];
-    // $id = $_GET['edit'];
     $id = $_POST['id'];
 
     if(isset($profile_picture['name']) && !empty($profile_picture['name'])){
@@ -134,7 +131,7 @@ if(isset($_POST['save'])){
             }
         }     
         $sql = "UPDATE $tablename SET fullname = '$fullname', username ='$username', email='$email', password='$password', phoneno='$phoneno', address='$address', status = '$status',role_id = '$role_id', profile_picture = '$profile_picture' WHERE id = '$id'";
-        // echo $sql;
+       
         $query = mysqli_query($conn,$sql);
         // $query.mysqli_error($conn);
         if($query){
@@ -188,7 +185,7 @@ if(isset($_GET['page'])){
 
 
     //find all records
-$userSql = "SELECT * FROM $tablename LIMIT $start,$limit";
+$userSql = "SELECT * FROM $tablename";
 $userQuery = mysqli_query($conn,$userSql);
 $count = mysqli_num_rows($userQuery);
 }

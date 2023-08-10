@@ -3,7 +3,7 @@
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Tour Package Booking <?php
-// echo date("Y");?></span>
+ //echo date("Y");?></span>
                     </div>
                 </div>
             </footer> -->

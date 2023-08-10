@@ -32,6 +32,7 @@ if (isset($_POST['save'])) {
     $adult = $_POST['adult'];
     $child = $_POST['child'];
     $adultPrice = number_format($packagePrice) * $adult;
+//    echo gettype($adultPrice);
     $childPrice = number_format($packagePrice) / 2 * $child;
     $totalPrice = $adultPrice + $childPrice;
 //    var_dump($totalPrice);

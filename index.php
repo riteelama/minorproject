@@ -49,6 +49,7 @@ global $conn;
                 <div class="container container-bigger form-request-wrap form-request-wrap-modern">
                     <div class="row row-fix justify-content-sm-center justify-content-lg-end">
                         <div class="col-lg-6 col-xxl-5">
+                            <form action="search.php" method="GET">
                             <div class="form-request form-request-modern bg-gray-lighter novi-background">
                                 <h4 class="text-center text-custom-black">Find your Tour</h4>
                                 <!-- RD Mailform-->
@@ -56,63 +57,17 @@ global $conn;
                                     <div class="row row-20 row-fix">
                                         <div class="col-sm-12">
                                             <label class="form-label-outside">Loacation</label>
-                                            <!--                                            <div class="form-wrap form-wrap-inline">-->
-                                            <!--                                                <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">-->
-                                            <!--                                                    <option value="1">Illam</option>-->
-                                            <!--                                                    <option value="2">Jhapa</option>-->
-                                            <!--                                                    <option value="3">Biratnagar</option>-->
-                                            <!--                                                </select>-->
-                                            <!--                                            </div>-->
                                             <div class="form-wrap form-wrap-inline">
-                                                <select class="form-input select-filter" data-placeholder="All"
-                                                        data-minimum-results-for-search="Infinity" name="city">
-                                                    <option value="1">Pokhara</option>
-                                                    <option value="2">Mustang</option>
-                                                    <option value="3">Jomsom</option>
-                                                </select>
-                                            </div>
+                                            <input type="text" id="location" name="location" placeholder="Enter a location" class="form-input">
                                         </div>
-                                        <div class="col-sm-12 col-lg-6">
-                                            <label class="form-label-outside">Depart Date</label>
+                                        <div class="col-sm-12">
+                                            <label class="form-label-outside">Price</label>
                                             <div class="form-wrap form-wrap-validation">
-                                                <!-- Select -->
-                                                <input class="form-input" id="dateForm" name="date" type="text"
-                                                       data-time-picker="date">
-                                                <label class="form-label" for="dateForm">Choose the date</label>
-                                                <!--select.form-input.select-filter(data-placeholder="All", data-minimum-results-for-search="Infinity",  name='city')-->
-                                                <!--  option(value="1") Choose the date-->
-                                                <!--  option(value="2") Primary-->
-                                                <!--  option(value="3") Middle-->
+                                                <input type="text" placeholder="Enter your price" name="price" class="form-input">
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-lg-6">
-                                            <label class="form-label-outside">Duration</label>
-                                            <div class="form-wrap form-wrap-validation">
-                                                <!-- Select 2-->
-                                                <select class="form-input select-filter" data-placeholder="All"
-                                                        data-minimum-results-for-search="Infinity" name="city">
-                                                    <option value="1">Any length</option>
-                                                    <option value="2">2 days</option>
-                                                    <option value="3">3 days</option>
-                                                    <option value="4">4 days</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <!--                                        <div class="col-lg-6">-->
-                                        <!--                                            <label class="form-label-outside">Adults</label>-->
-                                        <!--                                            <div class="form-wrap form-wrap-modern">-->
-                                        <!--                                                <input class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="2">-->
-                                        <!--                                            </div>-->
-                                        <!--                                        </div>-->
-                                        <!--                                        <div class="col-lg-6">-->
-                                        <!--                                            <label class="form-label-outside">Children</label>-->
-                                        <!--                                            <div class="form-wrap form-wrap-modern">-->
-                                        <!--                                                <input class="form-input input-append" id="form-element-stepper-1" type="number" min="0" max="300" value="0">-->
-                                        <!--                                            </div>-->
-                                        <!--                                        </div>-->
-                                        <!--                                    </div>-->
                                         <div class="form-wrap form-button m-auto">
-                                            <button class="button button-block button-secondary" type="submit">search tour package</button>
+                                            <button class="button button-block button-secondary" type="submit" name="search">search tour package</button>
                                         </div>
                                 </form>
                             </div>
@@ -157,7 +112,7 @@ global $conn;
                         <div class="event-default-inner">
                             <h5><a class="event-default-title"
                                    href="package-view.php?id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a>
-                            </h5><span class="heading-5"><?php echo $row['price']; ?></span>
+                            </h5><s36pan class="heading-5"><?php echo "$" . $row['price'] . " per person"; ?></s36pan>
                         </div>
                     </article>
                 </div>
@@ -275,7 +230,11 @@ global $conn;
 </section>
 <!--END BOTTOM BOOKING SECCTION-->
 <!-- END OF BODY SECTION-->
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfjyHuSMqkLHM-vw9Dvj71yJ9MqoF3d20&libraries=places"></script>
+<script>
+    var locationInput = document.getElementById('location');
+    var autocomplete = new google.maps.places.Autocomplete(locationInput);
+</script>
 <!--Including footer file in main page-->
 <?php
 include "frontend/includes/footer.php";

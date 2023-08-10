@@ -7,13 +7,14 @@
 
         $sql = "SELECT * FROM users WHERE email='$email'";
         $query = mysqli_query($conn,$sql);
-        // echo $sql;
+        // var_dump( $sql );
         // $rows=mysqli_num_rows($query)
         // print_r($rows);
 
         // if($rows>0){
         $num_rows = mysqli_fetch_assoc($query);
         $role_id = $num_rows['role_id'];
+        // var_dump($role_id);
         $email = $num_rows['email'];
         // echo $role_id;
         // }
